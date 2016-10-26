@@ -11,6 +11,7 @@ public class homeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         // This is a comment made by Art
+        // I love your comment - Sam
 
     }
 }
