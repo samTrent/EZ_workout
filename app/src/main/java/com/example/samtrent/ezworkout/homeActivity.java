@@ -25,6 +25,8 @@ public class homeActivity extends AppCompatActivity {
                 //go to new activity!
                 startActivity(new Intent(homeActivity.this, workoutListActivity.class));
 
+
+
             }
         });
 

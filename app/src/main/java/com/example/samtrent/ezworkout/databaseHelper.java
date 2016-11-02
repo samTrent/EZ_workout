@@ -47,8 +47,15 @@ public class databaseHelper extends OrmLiteSqliteOpenHelper {
         // create some entries in the onCreate
         Place homeOption = new Place();
         dao.create(homeOption);
+
+//        //Testing to be sure that dao is getting its information correctly...
+//        if (dao == null) throw new AssertionError("dao is still equal to NULL");
+
         homeOption = new Place();
         dao.create(homeOption);
+
+//        //Testing to be sure that dao is getting its information correctly...
+//        if (dao == null) throw new AssertionError("dao is still equal to NULL");
     }
 
     @Override

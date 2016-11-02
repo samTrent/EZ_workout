@@ -29,8 +29,11 @@ public class workoutListActivity extends AppCompatActivity {
         for(int i = 0; i < 10; i++)
         {
             listOfWorkouts.add("A Temp Workout");
+
         }
 
+        //checking to make sure that we have at least 1 item in our table...
+        if (listOfWorkouts.size() == 0) throw new AssertionError("listOfWorkouts isn't being populated correcly!");
 
         //convert to list adapter to display...
         itemAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listOfWorkouts);
@@ -66,3 +69,4 @@ public class workoutListActivity extends AppCompatActivity {
 
 
 }
+
