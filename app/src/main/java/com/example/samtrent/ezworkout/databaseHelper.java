@@ -1,7 +1,8 @@
 package com.example.samtrent.ezworkout;
 
+import java.sql.SQLException;
+
 import android.content.Context;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -12,15 +13,15 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 
-/**
- * Created by Elgalad on 10/28/16.
- */
 
 public class databaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "workout.db";
     private static final int DATABASE_VERSION = 1;
 
-    private Dao<Place, Integer> placeDao = null;
+    private Dao<Place, Integer> place_Dao = null;
+    private Dao<Workout_List, Integer> workout_list_Dao = null;
+    private Dao<Workout, Integer> workout_Dao = null;
+    private Dao<My_Workouts, Integer> my_workouts_Dao = null;
     private RuntimeExceptionDao<Place, Integer> runtimeDao = null;
 
     public databaseHelper(Context context) {
@@ -32,30 +33,13 @@ public class databaseHelper extends OrmLiteSqliteOpenHelper {
     public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 
         try {
-            Log.i(databaseHelper.class.getName(), "onCreate");
             TableUtils.createTable(connectionSource, Place.class);
+            TableUtils.createTable(connectionSource, Workout_List.class);
+            TableUtils.createTable(connectionSource, Workout.class);
+            TableUtils.createTable(connectionSource, My_Workouts.class);
         } catch (SQLException e) {
-            Log.e(databaseHelper.class.getName(), "Can't create database", e);
             throw new RuntimeException(e);
-        } catch (java.sql.SQLException e) {
-            e.printStackTrace();
         }
-
-
-        // here we try inserting data in the on-create as a test
-        RuntimeExceptionDao<Place, Integer> dao = getPlaceDao();
-        // create some entries in the onCreate
-        Place homeOption = new Place();
-        dao.create(homeOption);
-
-//        //Testing to be sure that dao is getting its information correctly...
-//        if (dao == null) throw new AssertionError("dao is still equal to NULL");
-
-        homeOption = new Place();
-        dao.create(homeOption);
-
-//        //Testing to be sure that dao is getting its information correctly...
-//        if (dao == null) throw new AssertionError("dao is still equal to NULL");
     }
 
     @Override
@@ -69,16 +53,25 @@ public class databaseHelper extends OrmLiteSqliteOpenHelper {
         } catch (SQLException e) {
             Log.e(databaseHelper.class.getName(), "Can't drop databases", e);
             throw new RuntimeException(e);
-        } catch (java.sql.SQLException e) {
-            e.printStackTrace();
         }
 
     }
 
 
-    public Dao<Place, Integer> getDao() throws SQLException {
+    public Dao<Place, Integer> get_Dao() throws SQLException {
+        return place_Dao;
+    }
 
-        return placeDao;
+    public Dao<Workout_List, Integer> get_Workout_List() throws SQLException {
+        return workout_list_Dao;
+    }
+
+    public Dao<Workout, Integer> get_Workout() throws SQLException {
+        return workout_Dao;
+    }
+
+    public Dao<My_Workouts, Integer> get_My_workouts_Dao() throws SQLException {
+        return my_workouts_Dao;
     }
 
 
@@ -94,7 +87,11 @@ public class databaseHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void close() {
         super.close();
-        placeDao = null;
+        place_Dao = null;
+        workout_list_Dao = null;
+        workout_Dao = null;
+        my_workouts_Dao = null;
         runtimeDao = null;
+
     }
 }
