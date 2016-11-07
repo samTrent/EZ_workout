@@ -86,6 +86,7 @@ public class databaseHelper extends OrmLiteSqliteOpenHelper {
         if (runtimeDao == null) {
             runtimeDao = getRuntimeExceptionDao(Place.class);
         }
+
         return runtimeDao;
     }
 

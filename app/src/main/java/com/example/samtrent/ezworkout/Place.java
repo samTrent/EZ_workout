@@ -1,18 +1,17 @@
 package com.example.samtrent.ezworkout;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 /**
  * Created by Elgalad on 10/28/16.
  */
-
+@DatabaseTable(tableName = "Place")
 public class Place {
 
-    @DatabaseField(generatedId = true)
+    @DatabaseField(id = true, columnName = "ID")
     int id;
-    @DatabaseField(index = true)
-    String string;
-    @DatabaseField
+    @DatabaseField(canBeNull = false)
     String place;
 
 

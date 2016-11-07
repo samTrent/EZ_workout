@@ -8,6 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import junit.framework.Assert;
+
 import java.util.ArrayList;
 
 public class workoutListActivity extends AppCompatActivity {
