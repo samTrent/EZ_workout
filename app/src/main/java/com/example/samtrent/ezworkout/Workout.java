@@ -7,51 +7,62 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "Workout")
 public class Workout {
 
-    public static final String FIELD_NAME_ID     = "Id";
-    public static final String FIELD_NAME_MUSCLE_GROUP   = "fk_MuscleGroup";
-    public static final String FIELD_NAME_NAME   = "Name";
-    public static final String FIELD_NAME_PROCEDURE   = "Procedure";
-    public static final String FIELD_NAME_GIF   = "Gif";
-    public static final String FIELD_NAME_PICTURES   = "Pictures";
+    private int id;
+    private int fk_muscleGroup;
+    private String name;
+    private String procedure;
 
-    @DatabaseField(id = true, columnName = FIELD_NAME_ID)
-    int id;
-
-    @DatabaseField(canBeNull = false, foreign = true, columnName = FIELD_NAME_MUSCLE_GROUP)
-    public Workout_List fk_muscleGroup;
-
-    @DatabaseField(canBeNull = false, columnName = FIELD_NAME_NAME)
-    String name;
-
-    @DatabaseField(canBeNull = false, columnName = FIELD_NAME_PROCEDURE)
-    String procedure;
-
-
-    Workout() {
-        // needed by ormlite
-    }
-
+    // set foreign key with Workout_List object
     Workout(int newId, String nwname, Workout_List nw_fk_MGroup, String nwprocedure) {
-        id = newId;
-        name = nwname;
-        procedure = nwprocedure;
-        fk_muscleGroup = nw_fk_MGroup;
+        setId(newId);
+        setName(nwname);
+        setFk_muscleGroup(nw_fk_MGroup);
+        setProcedure(nwprocedure);
     }
 
-    public Workout_List getMGroup() {
+    // set foreign key directly with an int
+    Workout(int newId, String nwname, int nw_fk_MGroup, String nwprocedure) {
+        setId(newId);
+        setName(nwname);
+        setFk_muscleGroup(nw_fk_MGroup);
+        setProcedure(nwprocedure);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int i) {
+        id = i;
+    }
+
+    public int getFk_muscleGroup() {
         return fk_muscleGroup;
+    }
+
+    public void setFk_muscleGroup(int fk) {
+        fk_muscleGroup = fk;
+    }
+
+    public void setFk_muscleGroup(Workout_List w) {
+        fk_muscleGroup = w.getId();
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String n) {
+        name = n;
+    }
+
     public String getProcedure() {
         return procedure;
     }
 
-    public int getId() {
-        return id;
+    public void setProcedure(String p) {
+        procedure = p;
     }
+
 
 }
