@@ -1,46 +1,55 @@
 package com.example.samtrent.ezworkout;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
-
-
-@DatabaseTable(tableName = "Workout_List")
 public class Workout_List {
 
-    public static final String FIELD_NAME_ID     = "Id";
-    public static final String FIELD_NAME_PLACE = "Place";
-    public static final String FIELD_NAME_MUSCLE_GROUP   = "MuscleGroup";
+    private int id;
+    private int fk_place;
+    private String MuscleGroup;
 
-    @DatabaseField(id = true, columnName = FIELD_NAME_ID)
-    int id;
-
-    @DatabaseField(canBeNull = false, foreign = true, columnName = FIELD_NAME_PLACE)
-    public Place fk_place;
-
-    @DatabaseField(canBeNull = false, columnName = FIELD_NAME_MUSCLE_GROUP)
-    String MuscleGroup;
-
-
-    Workout_List() {
-        // needed by ormlite
+    // This setter takes in a Place object to get its ID and set it to the foreign key
+    Workout_List(int newId, String newMGroup, Place newPlace) {
+        setId(newId);
+        setMuscleGroup(newMGroup);
+        setFk_place(newPlace);
     }
 
-    Workout_List(int newId, String newMGroup, Place nw_fk_Place) {
-        id = newId;
-        MuscleGroup = newMGroup;
-        fk_place = nw_fk_Place;
+    // This setter takes in an int as a direct foreign key for place
+    Workout_List(int newId, String newMGroup, int newPlace) {
+        setId(newId);
+        setMuscleGroup(newMGroup);
+        setFk_place(newPlace);
     }
 
-    public String getMGroup() {
+    public String getMuscleGroup() {
+
         return MuscleGroup;
     }
 
-    public Place getPlace() {
+    public void setMuscleGroup(String m) {
+        MuscleGroup = m;
+    }
+
+    public int getFk_place() {
+
         return fk_place;
     }
 
+    public void setFk_place(int fk) {
+        fk_place = fk;
+    }
+
+    // Setter for Fk_place that takes in a place and gets its ID
+    public void setFk_place(Place place) {
+        fk_place = place.getId();
+    }
+
     public int getId() {
+
         return id;
+    }
+
+    public void setId(int i) {
+        id = i;
     }
 
 }
