@@ -1,36 +1,32 @@
 package com.example.samtrent.ezworkout;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
 
-
-@DatabaseTable(tableName = "Place")
 public class Place {
 
-    public static final String FIELD_NAME_ID     = "id";
-    public static final String FIELD_NAME_PLACE   = "place";
+    private int id;
+    private String place;
 
-    @DatabaseField(id = true, columnName = FIELD_NAME_ID)
-    int id;
-    @DatabaseField(canBeNull = false, columnName = FIELD_NAME_PLACE)
-    String place;
-
-
-    Place() {
-        // needed by ormlite
-    }
-
-    Place(int newId, String newName) {
-        id = newId;
-        place = newName;
+    Place(int newId, String newPlace) {
+        setId(newId);
+        setPlace(newPlace);
     }
 
     public String getPlace() {
+
         return place;
     }
 
+    public void setPlace(String p) {
+        place = p;
+    }
+
     public int getId() {
+
         return id;
+    }
+
+    public void setId(int i) {
+        id = i;
     }
 
 }
