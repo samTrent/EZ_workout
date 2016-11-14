@@ -6,7 +6,7 @@ public class Place {
     private int id;
     private String place;
 
-    Place(int newId, String newPlace) {
+    public Place(int newId, String newPlace) {
         setId(newId);
         setPlace(newPlace);
     }

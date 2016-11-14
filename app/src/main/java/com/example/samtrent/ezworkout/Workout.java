@@ -13,7 +13,7 @@ public class Workout {
     private String procedure;
 
     // set foreign key with Workout_List object
-    Workout(int newId, String nwname, Workout_List nw_fk_MGroup, String nwprocedure) {
+    public Workout(int newId, String nwname, Workout_List nw_fk_MGroup, String nwprocedure) {
         setId(newId);
         setName(nwname);
         setFk_muscleGroup(nw_fk_MGroup);
@@ -21,7 +21,7 @@ public class Workout {
     }
 
     // set foreign key directly with an int
-    Workout(int newId, String nwname, int nw_fk_MGroup, String nwprocedure) {
+    public Workout(int newId, String nwname, int nw_fk_MGroup, String nwprocedure) {
         setId(newId);
         setName(nwname);
         setFk_muscleGroup(nw_fk_MGroup);

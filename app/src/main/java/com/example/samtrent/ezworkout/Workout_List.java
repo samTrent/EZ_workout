@@ -7,14 +7,14 @@ public class Workout_List {
     private String MuscleGroup;
 
     // This setter takes in a Place object to get its ID and set it to the foreign key
-    Workout_List(int newId, String newMGroup, Place newPlace) {
+    public Workout_List(int newId, String newMGroup, Place newPlace) {
         setId(newId);
         setMuscleGroup(newMGroup);
         setFk_place(newPlace);
     }
 
     // This setter takes in an int as a direct foreign key for place
-    Workout_List(int newId, String newMGroup, int newPlace) {
+    public Workout_List(int newId, String newMGroup, int newPlace) {
         setId(newId);
         setMuscleGroup(newMGroup);
         setFk_place(newPlace);
