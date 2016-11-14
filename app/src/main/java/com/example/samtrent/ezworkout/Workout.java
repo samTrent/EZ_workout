@@ -11,6 +11,7 @@ public class Workout {
     private int fk_muscleGroup;
     private String name;
     private String procedure;
+    private boolean isFavorite;
 
     // set foreign key with Workout_List object
     public Workout(int newId, String nwname, Workout_List nw_fk_MGroup, String nwprocedure) {
@@ -62,6 +63,14 @@ public class Workout {
 
     public void setProcedure(String p) {
         procedure = p;
+    }
+
+    public boolean getIsFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(boolean f) {
+        isFavorite = f;
     }
 
 
