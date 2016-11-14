@@ -1,39 +1,43 @@
 package com.example.samtrent.ezworkout;
 
 
-
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
-
-
-@DatabaseTable(tableName = "My_Workouts")
 public class My_Workouts {
 
-    public static final String FIELD_NAME_ID     = "Id";
-    public static final String FIELD_NAME_WORKOUT = "fk_Workout";
+    private int id;
+    private int fk_workout;
 
-    @DatabaseField(id = true, columnName = FIELD_NAME_ID)
-    int id;
-
-    @DatabaseField(canBeNull = false, foreign = true, columnName = FIELD_NAME_WORKOUT)
-    public Workout fk_workout;
-
-
-    My_Workouts() {
-        // needed by ormlite
+    // uses Workout object to set foreign key
+    public My_Workouts(int newId, Workout nw_fk_Workout) {
+        setId(newId);
+        setFk_workout(nw_fk_Workout);
     }
 
-    My_Workouts(int newId, Workout nw_fk_Workout) {
-        id = newId;
-        fk_workout = nw_fk_Workout;
-    }
-
-    public Workout getFk_workout() {
-        return fk_workout;
+    // manually put in foreign key
+    public My_Workouts(int newId, int nw_fk_Workout) {
+        setId(newId);
+        setFk_workout(nw_fk_Workout);
     }
 
     public int getId() {
         return id;
     }
+
+    public void setId(int i) {
+        id = i;
+    }
+
+    public int getFk_workout() {
+
+        return fk_workout;
+    }
+
+    public void setFk_workout(int fk) {
+        fk_workout = fk;
+    }
+
+    public void setFk_workout(Workout w) {
+        fk_workout = w.getId();
+    }
+
 
 }
