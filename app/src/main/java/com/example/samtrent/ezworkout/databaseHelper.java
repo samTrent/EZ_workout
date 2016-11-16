@@ -7,11 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
-import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
 
 
 public class databaseHelper extends SQLiteOpenHelper {
@@ -75,13 +70,23 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-
+        // creating required tables
+        db.execSQL(CREATE_WORKOUTS_TABLE);
+        db.execSQL(CREATE_WORKOUTS_LIST_TABLE);
+        db.execSQL(CREATE_PLACE_TABLE);
+        db.execSQL(CREATE_FAV_WORKOUTS_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // on upgrade drop older tables
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUTS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUT_LIST);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLACE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITE_WORKOUTS);
 
+        // create new tables
+        onCreate(db);
     }
 
 
