@@ -6,6 +6,10 @@ public class Place {
     private int id;
     private String place;
 
+    // constructors
+    public Place() {
+    }
+
     public Place(int newId, String newPlace) {
         setId(newId);
         setPlace(newPlace);

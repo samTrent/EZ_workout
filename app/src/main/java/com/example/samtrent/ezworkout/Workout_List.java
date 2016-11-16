@@ -6,6 +6,10 @@ public class Workout_List {
     private int fk_place;
     private String MuscleGroup;
 
+    // constructors
+    public Workout_List() {
+    }
+
     // This setter takes in a Place object to get its ID and set it to the foreign key
     public Workout_List(int newId, String newMGroup, Place newPlace) {
         setId(newId);

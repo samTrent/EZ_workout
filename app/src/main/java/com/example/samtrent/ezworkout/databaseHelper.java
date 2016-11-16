@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -11,6 +12,9 @@ import android.util.Log;
 
 
 public class databaseHelper extends SQLiteOpenHelper {
+
+    // Logcat tag
+    private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
     private static final int DATABASE_VERSION = 1;
@@ -90,6 +94,11 @@ public class databaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    /**************************************************************************
+     *
+     * Workout methods
+     *
+     *************************************************************************/
     /*
     * Creating workout
     */
@@ -109,7 +118,36 @@ public class databaseHelper extends SQLiteOpenHelper {
         return workout_id;
     }
 
+    /*
+    * get single Workout
+    */
+    public Workout get_Workout(long workout_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        String selectQuery = "SELECT  * FROM " + TABLE_WORKOUTS + " WHERE "
+                + KEY_W_ID + " = " + workout_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Workout w = new Workout();
+        w.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
+        w.setName((c.getString(c.getColumnIndex(KEY_W_NAME))));
+        w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
+        w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
+
+        return w;
+    }
+
+    /**************************************************************************
+     *
+     * Workout_List methods
+     *
+     *************************************************************************/
     /*
     * Creating workout_list
     */
@@ -127,7 +165,35 @@ public class databaseHelper extends SQLiteOpenHelper {
         return workout_list_id;
     }
 
+    /*
+    * get single Workout_List
+    */
+    public Workout_List get_Workout_List(long workout_list_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        String selectQuery = "SELECT  * FROM " + TABLE_WORKOUT_LIST + " WHERE "
+                + KEY_WL_ID + " = " + workout_list_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Workout_List wl = new Workout_List();
+        wl.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
+        wl.setMuscleGroup((c.getString(c.getColumnIndex(KEY_WL_MUSCLE_GROUP))));
+        wl.setFk_place((c.getInt(c.getColumnIndex(KEY_WL_PLACE))));
+
+        return wl;
+    }
+
+    /**************************************************************************
+     *
+     * Place methods
+     *
+     *************************************************************************/
     /*
     * Creating place
     */
@@ -144,8 +210,34 @@ public class databaseHelper extends SQLiteOpenHelper {
         return place_id;
     }
 
+    /*
+    * get single Place
+    */
+    public Place get_Place(long place_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        String selectQuery = "SELECT  * FROM " + TABLE_PLACE + " WHERE "
+                + KEY_P_ID + " = " + place_id;
 
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        Place p = new Place();
+        p.setId(c.getInt(c.getColumnIndex(KEY_P_ID)));
+        p.setPlace((c.getString(c.getColumnIndex(KEY_P_PLACE))));
+
+        return p;
+    }
+
+    /**************************************************************************
+     *
+     * Favorite_Workout methods
+     *
+     *************************************************************************/
     /*
     * Creating favorite_workouts
     */
@@ -162,7 +254,28 @@ public class databaseHelper extends SQLiteOpenHelper {
         return fave_workout_id;
     }
 
+    /*
+    * get single Favorite_Workout
+    */
+    public My_Workouts get_My_Workouts(long fave_workout_id) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        String selectQuery = "SELECT  * FROM " + TABLE_FAVORITE_WORKOUTS + " WHERE "
+                + KEY_FW_ID + " = " + fave_workout_id;
+
+        Log.e(LOG, selectQuery);
+
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        if (c != null)
+            c.moveToFirst();
+
+        My_Workouts mw = new My_Workouts();
+        mw.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
+        mw.setFk_workout((c.getInt(c.getColumnIndex(KEY_FW_WORKOUT))));
+
+        return mw;
+    }
 
 
 }

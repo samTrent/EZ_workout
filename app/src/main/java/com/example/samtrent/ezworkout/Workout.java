@@ -13,6 +13,10 @@ public class Workout {
     private String procedure;
     private boolean isFavorite;
 
+    // constructors
+    public Workout() {
+    }
+
     // set foreign key with Workout_List object
     public Workout(int newId, String nwname, Workout_List nw_fk_MGroup, String nwprocedure) {
         setId(newId);

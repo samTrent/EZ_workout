@@ -6,6 +6,10 @@ public class My_Workouts {
     private int id;
     private int fk_workout;
 
+    // constructors
+    public My_Workouts() {
+    }
+
     // uses Workout object to set foreign key
     public My_Workouts(int newId, Workout nw_fk_Workout) {
         setId(newId);
