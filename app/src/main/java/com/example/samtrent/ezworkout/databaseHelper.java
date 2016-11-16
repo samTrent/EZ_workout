@@ -1,6 +1,5 @@
 package com.example.samtrent.ezworkout;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,7 +101,7 @@ public class databaseHelper extends SQLiteOpenHelper {
      *
      *************************************************************************/
     /*
-    * Creating workout
+    * insert into workout
     */
     public long insert_Workout(Workout workout, long workout_list_id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -121,7 +120,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /*
-    * get single Workout
+    * query single Workout
     */
     public Workout query_Workout(long workout_id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -146,7 +145,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * getting all workouts
+     * query all workouts
      * */
     public List<Workout> query_All_Workouts() {
         List<Workout> workouts = new ArrayList<Workout>();
@@ -179,7 +178,7 @@ public class databaseHelper extends SQLiteOpenHelper {
      *
      *************************************************************************/
     /*
-    * Creating workout_list
+    * insert into workout_list
     */
     public long insert_Workout_List(Workout_List workout_list, long place_id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -196,7 +195,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /*
-    * get single Workout_List
+    * query single Workout_List
     */
     public Workout_List query_Workout_List(long workout_list_id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -220,7 +219,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * getting all workout_lists
+     * query all workout_lists
      * */
     public List<Workout_List> query_All_Workout_Lists() {
         List<Workout_List> workout_lists = new ArrayList<Workout_List>();
@@ -252,7 +251,7 @@ public class databaseHelper extends SQLiteOpenHelper {
      *
      *************************************************************************/
     /*
-    * Creating place
+    * insert into place
     */
     public long insert_Place(Place place) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -268,7 +267,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /*
-    * get single Place
+    * guery single Place
     */
     public Place query_Place(long place_id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -291,7 +290,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * getting all places
+     * query all places
      * */
     public List<Place> query_All_Places() {
         List<Place> places = new ArrayList<Place>();
@@ -322,7 +321,7 @@ public class databaseHelper extends SQLiteOpenHelper {
      *
      *************************************************************************/
     /*
-    * Creating favorite_workouts
+    * insert into favorite_workouts
     */
     public long insert_Favorite_Workout(My_Workouts my_workouts, long workout_id) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -338,7 +337,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /*
-    * get single Favorite_Workout
+    * query single Favorite_Workout
     */
     public My_Workouts query_My_Workouts(long fave_workout_id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -361,7 +360,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * getting all my_workouts
+     * query all my_workouts
      * */
     public List<My_Workouts> query_All_My_Workouts() {
         List<My_Workouts> my_workouts = new ArrayList<My_Workouts>();
