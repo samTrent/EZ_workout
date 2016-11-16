@@ -2,6 +2,7 @@ package com.example.samtrent.ezworkout;
 
 import java.sql.SQLException;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -88,6 +89,80 @@ public class databaseHelper extends SQLiteOpenHelper {
         // create new tables
         onCreate(db);
     }
+
+    /*
+    * Creating workout
+    */
+    public long create_Workout(Workout workout, long workout_list_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_W_ID, workout.getId());
+        values.put(KEY_W_NAME, workout.getName());
+        values.put(KEY_W_PROCEDURE, workout.getProcedure());
+        values.put(KEY_W_IS_FAVORITE, workout.getIsFavorite());
+        values.put(KEY_W_MUSCLE_GROUP, workout_list_id);
+
+        // insert row
+        long workout_id = db.insert(TABLE_WORKOUTS, null, values);
+
+        return workout_id;
+    }
+
+
+    /*
+    * Creating workout_list
+    */
+    public long create_Workout_List(Workout_List workout_list, long place_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_WL_ID, workout_list.getId());
+        values.put(KEY_WL_MUSCLE_GROUP, workout_list.getMuscleGroup());
+        values.put(KEY_WL_PLACE, place_id);
+
+        // insert row
+        long workout_list_id = db.insert(TABLE_WORKOUT_LIST, null, values);
+
+        return workout_list_id;
+    }
+
+
+    /*
+    * Creating place
+    */
+    public long create_Place(Place place) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_P_ID, place.getId());
+        values.put(KEY_P_PLACE, place.getPlace());
+
+        // insert row
+        long place_id = db.insert(TABLE_PLACE, null, values);
+
+        return place_id;
+    }
+
+
+
+    /*
+    * Creating favorite_workouts
+    */
+    public long create_Favorite_Workout(My_Workouts my_workouts, long workout_id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_FW_ID, my_workouts.getId());
+        values.put(KEY_FW_WORKOUT, workout_id);
+
+        // insert row
+        long fave_workout_id = db.insert(TABLE_FAVORITE_WORKOUTS, null, values);
+
+        return fave_workout_id;
+    }
+
+
 
 
 }
