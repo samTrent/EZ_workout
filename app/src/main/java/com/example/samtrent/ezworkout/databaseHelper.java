@@ -1,6 +1,8 @@
 package com.example.samtrent.ezworkout;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -102,7 +104,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * Creating workout
     */
-    public long create_Workout(Workout workout, long workout_list_id) {
+    public long insert_Workout(Workout workout, long workout_list_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -121,7 +123,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * get single Workout
     */
-    public Workout get_Workout(long workout_id) {
+    public Workout query_Workout(long workout_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_WORKOUTS + " WHERE "
@@ -143,6 +145,34 @@ public class databaseHelper extends SQLiteOpenHelper {
         return w;
     }
 
+    /**
+     * getting all workouts
+     * */
+    public List<Workout> query_All_Workouts() {
+        List<Workout> workouts = new ArrayList<Workout>();
+        String selectQuery = "SELECT  * FROM " + TABLE_WORKOUTS;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Workout w = new Workout();
+                w.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
+                w.setName((c.getString(c.getColumnIndex(KEY_W_NAME))));
+                w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
+                w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
+
+                // adding to tags list
+                workouts.add(w);
+            } while (c.moveToNext());
+        }
+        return workouts;
+    }
+
     /**************************************************************************
      *
      * Workout_List methods
@@ -151,7 +181,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * Creating workout_list
     */
-    public long create_Workout_List(Workout_List workout_list, long place_id) {
+    public long insert_Workout_List(Workout_List workout_list, long place_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -168,7 +198,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * get single Workout_List
     */
-    public Workout_List get_Workout_List(long workout_list_id) {
+    public Workout_List query_Workout_List(long workout_list_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_WORKOUT_LIST + " WHERE "
@@ -189,6 +219,33 @@ public class databaseHelper extends SQLiteOpenHelper {
         return wl;
     }
 
+    /**
+     * getting all workout_lists
+     * */
+    public List<Workout_List> query_All_Workout_Lists() {
+        List<Workout_List> workout_lists = new ArrayList<Workout_List>();
+        String selectQuery = "SELECT  * FROM " + TABLE_WORKOUT_LIST;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Workout_List wl = new Workout_List();
+                wl.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
+                wl.setMuscleGroup((c.getString(c.getColumnIndex(KEY_WL_MUSCLE_GROUP))));
+                wl.setFk_place((c.getInt(c.getColumnIndex(KEY_WL_PLACE))));
+
+                // adding to tags list
+                workout_lists.add(wl);
+            } while (c.moveToNext());
+        }
+        return workout_lists;
+    }
+
     /**************************************************************************
      *
      * Place methods
@@ -197,7 +254,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * Creating place
     */
-    public long create_Place(Place place) {
+    public long insert_Place(Place place) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -213,7 +270,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * get single Place
     */
-    public Place get_Place(long place_id) {
+    public Place query_Place(long place_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_PLACE + " WHERE "
@@ -233,6 +290,32 @@ public class databaseHelper extends SQLiteOpenHelper {
         return p;
     }
 
+    /**
+     * getting all places
+     * */
+    public List<Place> query_All_Places() {
+        List<Place> places = new ArrayList<Place>();
+        String selectQuery = "SELECT  * FROM " + TABLE_PLACE;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                Place p = new Place();
+                p.setId(c.getInt((c.getColumnIndex(KEY_P_ID))));
+                p.setPlace(c.getString(c.getColumnIndex(KEY_P_PLACE)));
+
+                // adding to tags list
+                places.add(p);
+            } while (c.moveToNext());
+        }
+        return places;
+    }
+
     /**************************************************************************
      *
      * Favorite_Workout methods
@@ -241,7 +324,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * Creating favorite_workouts
     */
-    public long create_Favorite_Workout(My_Workouts my_workouts, long workout_id) {
+    public long insert_Favorite_Workout(My_Workouts my_workouts, long workout_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -257,7 +340,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     /*
     * get single Favorite_Workout
     */
-    public My_Workouts get_My_Workouts(long fave_workout_id) {
+    public My_Workouts query_My_Workouts(long fave_workout_id) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_FAVORITE_WORKOUTS + " WHERE "
@@ -275,6 +358,32 @@ public class databaseHelper extends SQLiteOpenHelper {
         mw.setFk_workout((c.getInt(c.getColumnIndex(KEY_FW_WORKOUT))));
 
         return mw;
+    }
+
+    /**
+     * getting all my_workouts
+     * */
+    public List<My_Workouts> query_All_My_Workouts() {
+        List<My_Workouts> my_workouts = new ArrayList<My_Workouts>();
+        String selectQuery = "SELECT  * FROM " + TABLE_FAVORITE_WORKOUTS;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (c.moveToFirst()) {
+            do {
+                My_Workouts mw = new My_Workouts();
+                mw.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
+                mw.setFk_workout((c.getInt(c.getColumnIndex(KEY_FW_WORKOUT))));
+
+                // adding to tags list
+                my_workouts.add(mw);
+            } while (c.moveToNext());
+        }
+        return my_workouts;
     }
 
 
