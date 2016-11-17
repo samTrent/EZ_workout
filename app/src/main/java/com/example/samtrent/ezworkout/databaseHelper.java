@@ -19,7 +19,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";
@@ -147,9 +147,11 @@ public class databaseHelper extends SQLiteOpenHelper {
     /**
      * query all workouts
      * */
-    public List<Workout> query_All_Workouts() {
+    public List<Workout> query_All_Workouts(String muscle_group) {
         List<Workout> workouts = new ArrayList<Workout>();
-        String selectQuery = "SELECT  * FROM " + TABLE_WORKOUTS;
+        String selectQuery = "SELECT * FROM " + TABLE_WORKOUTS + " w INNER JOIN " +
+                TABLE_WORKOUT_LIST + " wl ON wl." + KEY_WL_ID + " = w." + KEY_W_MUSCLE_GROUP +
+                " WHERE wl." + KEY_WL_MUSCLE_GROUP + " = \"" + muscle_group + "\"";
 
         Log.e(LOG, selectQuery);
 
@@ -160,7 +162,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()) {
             do {
                 Workout w = new Workout();
-                w.setId((c.getColumnIndex(KEY_W_ID)));
+                w.setId((c.getInt(c.getColumnIndex(KEY_W_ID))));
                 w.setName((c.getString(c.getColumnIndex(KEY_W_NAME))));
                 w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
                 w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));

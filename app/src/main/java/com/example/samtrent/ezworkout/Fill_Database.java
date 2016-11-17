@@ -83,7 +83,6 @@ public class Fill_Database {
     public void fill_Workout_Table() {
 
         Workout basic_Curl_A_G = new Workout(1, "Consentration Curl", 205, basic_Curl_Procedure);
-        //Workout tricept_A_H = new Workout();
 
         basic_Curl_A_G_Id = db.insert_Workout(basic_Curl_A_G, arms_G_Id);
     }
