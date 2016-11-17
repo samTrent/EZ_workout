@@ -3,6 +3,7 @@ package com.example.samtrent.ezworkout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,6 +12,8 @@ import android.widget.ListView;
 import junit.framework.Assert;
 
 import java.util.ArrayList;
+
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class workoutListActivity extends AppCompatActivity {
 
@@ -27,10 +30,13 @@ public class workoutListActivity extends AppCompatActivity {
         // initializing our ArrayList
         listOfWorkouts = new ArrayList();
 
+        Log.e("workoutListActivity", "Error in the workout list activity!\n");
+
         //populating it...
         for(int i = 0; i < 10; i++)
         {
             listOfWorkouts.add("A Temp Workout");
+            Log.i("workoutListActivity", "Created a temp workout\n");
 
         }
 

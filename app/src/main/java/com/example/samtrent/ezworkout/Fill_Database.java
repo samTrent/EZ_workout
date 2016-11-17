@@ -23,7 +23,25 @@ public class Fill_Database {
     public long chest_G_Id;
 
     // FK from workout table
-
+    public long basic_Curl_A_G_Id;
+    private String basic_Curl_Procedure = "Materials needed:\n\n" +
+            "- Weighted dumbbell\n" +
+            "- (optional) Flat surface to sit on\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1    Stand up straight with a dumbbell in each hand at arm's length. Keep your\n" +
+            "elbows close to your torso and rotate the palms of your hands until they are\n" +
+            "facing forward. This will be your starting position.\n\n" +
+            "2  Now, keeping the upper arms stationary, exhale and curl the weights while\n" +
+            "contracting your biceps. Continue to raise the weights until your biceps are fully\n" +
+            "contracted and the dumbbells are at shoulder level. Hold the contracted position\n" +
+            "for a brief pause as you squeeze your biceps.\n\n" +
+            "3  Then, inhale and slowly begin to lower the dumbbells back to the starting\n" +
+            "position.\n\n" +
+            "4  Repeat for the recommended amount of repetitions.\n\n" +
+            "Variations: There are many possible variations for this movement. For instance, you can\n" +
+            "perform the exercise sitting down on a bench with or without back support and you can\n" +
+            "also perform it by alternating arms; first lift the right arm for one repetition, the the left,\n" +
+            "then the right, etc.\n";
 
 
     public Fill_Database(databaseHelper db) {
@@ -32,8 +50,8 @@ public class Fill_Database {
 
     public void fill_Place_Table() {
 
-        Place home = new Place(101, "Home");
-        Place gym = new Place(102, "Gym");
+        Place home = new Place(1001, "Home");
+        Place gym = new Place(1002, "Gym");
 
         home_id = db.insert_Place(home);
         gym_id = db.insert_Place(gym);
@@ -41,20 +59,20 @@ public class Fill_Database {
 
     public void fill_Workout_List_Table() {
 
-        Workout_List arms_H = new Workout_List(1, "Arms");
-        Workout_List legs_H = new Workout_List(2, "Legs");
-        Workout_List back_H = new Workout_List(3, "Back");
-        Workout_List chest_H = new Workout_List(4, "Chest");
+        Workout_List arms_H = new Workout_List(101, "Arms", 1001);
+        Workout_List legs_H = new Workout_List(102, "Legs", 1001);
+        Workout_List back_H = new Workout_List(103, "Back", 1001);
+        Workout_List chest_H = new Workout_List(104, "Chest", 1001);
 
         arms_H_Id = db.insert_Workout_List(arms_H, home_id);
         legs_H_Id = db.insert_Workout_List(legs_H, home_id);
         back_H_Id = db.insert_Workout_List(back_H, home_id);
         chest_H_Id = db.insert_Workout_List(chest_H, home_id);
 
-        Workout_List arms_G = new Workout_List(5, "Arms");
-        Workout_List legs_G = new Workout_List(6, "Legs");
-        Workout_List back_G = new Workout_List(7, "Back");
-        Workout_List chest_G = new Workout_List(8, "Chest");
+        Workout_List arms_G = new Workout_List(205, "Arms", 1002);
+        Workout_List legs_G = new Workout_List(206, "Legs", 1002);
+        Workout_List back_G = new Workout_List(207, "Back", 1002);
+        Workout_List chest_G = new Workout_List(208, "Chest", 1002);
 
         arms_G_Id = db.insert_Workout_List(arms_G, gym_id);
         legs_G_Id = db.insert_Workout_List(legs_G, gym_id);
@@ -64,9 +82,10 @@ public class Fill_Database {
 
     public void fill_Workout_Table() {
 
-        Workout bicept_A_H = new Workout();
-        Workout tricept_A_H = new Workout();
+        Workout basic_Curl_A_G = new Workout(1, "Consentration Curl", 205, basic_Curl_Procedure);
+        //Workout tricept_A_H = new Workout();
 
+        basic_Curl_A_G_Id = db.insert_Workout(basic_Curl_A_G, arms_G_Id);
     }
 
 }

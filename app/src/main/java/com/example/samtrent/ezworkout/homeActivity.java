@@ -28,15 +28,17 @@ public class homeActivity extends AppCompatActivity {
         fd.fill_Place_Table();
         fd.fill_Workout_List_Table();
 
-        List<Workout_List> home_list = new ArrayList<Workout_List>();
-        List<Workout_List> gym_list = new ArrayList<Workout_List>();
-
-        home_list = db.query_All_Workout_Lists("Home");
-        //gym_list = db.query_All_Workout_Lists("Gym");
+        List<Workout_List> home_list = db.query_All_Workout_Lists("Home");
+        List<Workout_List> gym_list = db.query_All_Workout_Lists("Gym");
 
         for (Workout_List wl : home_list) {
             Log.i("With Home Query", wl.getId() + ": " + wl.getMuscleGroup() + ", FK " + wl.getFk_place());
         }
+
+        for (Workout_List wl : gym_list) {
+            Log.i("With Gym Query", wl.getId() + ": " + wl.getMuscleGroup() + ", FK " + wl.getFk_place());
+        }
+
 
         //setting up our button to be "clickable"
         ImageButton armGymButton = (ImageButton) findViewById(R.id.armGymButton);

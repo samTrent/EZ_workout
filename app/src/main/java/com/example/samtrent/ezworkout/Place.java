@@ -10,6 +10,10 @@ public class Place {
     public Place() {
     }
 
+    public Place(String newPlace) {
+        setPlace(newPlace);
+    }
+
     public Place(int newId, String newPlace) {
         setId(newId);
         setPlace(newPlace);

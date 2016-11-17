@@ -18,10 +18,9 @@ public class Workout {
     }
 
     // set foreign key with Workout_List object
-    public Workout(int newId, String nwname, Workout_List nw_fk_MGroup, String nwprocedure) {
+    public Workout(int newId, String nwname, String nwprocedure) {
         setId(newId);
         setName(nwname);
-        setFk_muscleGroup(nw_fk_MGroup);
         setProcedure(nwprocedure);
     }
 

@@ -6,6 +6,7 @@ import java.util.List;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -18,15 +19,15 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 8;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";
-    private static final String KEY_W_ID = "ID";
-    private static final String KEY_W_NAME = "Name";
-    private static final String KEY_W_PROCEDURE = "Procedure";
-    private static final String KEY_W_IS_FAVORITE = "isFavorite";
-    private static final String KEY_W_MUSCLE_GROUP = "Muscle_Group";
+    private static final String KEY_W_ID = "W_ID";
+    private static final String KEY_W_NAME = "W_Name";
+    private static final String KEY_W_PROCEDURE = "W_Procedure";
+    private static final String KEY_W_IS_FAVORITE = "W_isFavorite";
+    private static final String KEY_W_MUSCLE_GROUP = "W_Muscle_Group";
     // Workouts table create
     private static final String CREATE_WORKOUTS_TABLE =
             "CREATE TABLE " + TABLE_WORKOUTS +
@@ -38,20 +39,20 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     // Workouts_lists table and column names
     private static final String TABLE_WORKOUT_LIST = "Workout_Lists";
-    private static final String KEY_WL_ID = "ID";
-    private static final String KEY_WL_MUSCLE_GROUP = "Muscle_Group";
-    private static final String KEY_WL_PLACE = "Place";
+    private static final String KEY_WL_ID = "WL_ID";
+    private static final String KEY_WL_MUSCLE_GROUP = "WL_Muscle_Group";
+    private static final String KEY_WL_PLACE = "WL_Place";
     // Workouts_list table create
     private static final String CREATE_WORKOUTS_LIST_TABLE =
             "CREATE TABLE " + TABLE_WORKOUT_LIST +
                     "(" + KEY_WL_ID + " INTEGER PRIMARY KEY," +
-                    KEY_WL_MUSCLE_GROUP + " INTEGER, " +
+                    KEY_WL_MUSCLE_GROUP + " TEXT, " +
                     KEY_WL_PLACE + " INTEGER" + ")";
 
     // Places table and column names
     private static final String TABLE_PLACE = "Places";
-    private static final String KEY_P_ID = "ID";
-    private static final String KEY_P_PLACE = "Place";
+    private static final String KEY_P_ID = "P_ID";
+    private static final String KEY_P_PLACE = "P_Place";
     // Places table create
     private static final String CREATE_PLACE_TABLE =
             "CREATE TABLE " + TABLE_PLACE +
@@ -60,8 +61,8 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     // Favorite Workouts table and column names
     private static final String TABLE_FAVORITE_WORKOUTS = "Favorite_Workouts";
-    private static final String KEY_FW_ID = "ID";
-    private static final String KEY_FW_WORKOUT = "Workout";
+    private static final String KEY_FW_ID = "FW_ID";
+    private static final String KEY_FW_WORKOUT = "FW_Workout";
     // Favorite Workouts table create
     private static final String CREATE_FAV_WORKOUTS_TABLE =
             "CREATE TABLE " + TABLE_FAVORITE_WORKOUTS +
@@ -77,18 +78,18 @@ public class databaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // creating required tables
+        db.execSQL(CREATE_FAV_WORKOUTS_TABLE);
         db.execSQL(CREATE_WORKOUTS_TABLE);
         db.execSQL(CREATE_WORKOUTS_LIST_TABLE);
         db.execSQL(CREATE_PLACE_TABLE);
-        db.execSQL(CREATE_FAV_WORKOUTS_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // on upgrade drop older tables
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUTS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUT_LIST);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLACE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUT_LIST);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITE_WORKOUTS);
 
         // create new tables
@@ -107,6 +108,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+        values.put(KEY_W_ID, workout.getId());
         values.put(KEY_W_NAME, workout.getName());
         values.put(KEY_W_PROCEDURE, workout.getProcedure());
         values.put(KEY_W_IS_FAVORITE, workout.getIsFavorite());
@@ -114,7 +116,6 @@ public class databaseHelper extends SQLiteOpenHelper {
 
         // insert row
         long workout_id = db.insert(TABLE_WORKOUTS, null, values);
-
         return workout_id;
     }
 
@@ -135,7 +136,7 @@ public class databaseHelper extends SQLiteOpenHelper {
             c.moveToFirst();
 
         Workout w = new Workout();
-        w.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
+        w.setId(c.getInt(c.getColumnIndex(KEY_W_ID)));
         w.setName((c.getString(c.getColumnIndex(KEY_W_NAME))));
         w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
         w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
@@ -159,6 +160,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         if (c.moveToFirst()) {
             do {
                 Workout w = new Workout();
+                w.setId((c.getColumnIndex(KEY_W_ID)));
                 w.setName((c.getString(c.getColumnIndex(KEY_W_NAME))));
                 w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
                 w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
@@ -182,12 +184,12 @@ public class databaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+        values.put(KEY_WL_ID, workout_list.getId());
         values.put(KEY_WL_MUSCLE_GROUP, workout_list.getMuscleGroup());
         values.put(KEY_WL_PLACE, place_id);
 
         // insert row
         long workout_list_id = db.insert(TABLE_WORKOUT_LIST, null, values);
-
         return workout_list_id;
     }
 
@@ -221,9 +223,9 @@ public class databaseHelper extends SQLiteOpenHelper {
     public List<Workout_List> query_All_Workout_Lists(String place) {
         List<Workout_List> workout_lists = new ArrayList<Workout_List>();
         String selectQuery = "SELECT * FROM " + TABLE_WORKOUT_LIST + " wl INNER JOIN " +
-                TABLE_PLACE + " p ON wl." + KEY_WL_PLACE + " = p." + KEY_P_ID + " WHERE p." + KEY_P_PLACE + " = \"" + place + "\"";
-        //String selectQuery = "SELECT * FROM " + TABLE_WORKOUT_LIST;
-        Log.e(LOG, selectQuery);
+                TABLE_PLACE + " p ON p." + KEY_P_ID + " = wl." + KEY_WL_PLACE + " WHERE p." + KEY_P_PLACE + " = \"" + place + "\"";
+
+        //Log.e(LOG, selectQuery);
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery(selectQuery, null);
@@ -255,11 +257,11 @@ public class databaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
+        values.put(KEY_P_ID, place.getId());
         values.put(KEY_P_PLACE, place.getPlace());
 
         // insert row
         long place_id = db.insert(TABLE_PLACE, null, values);
-
         return place_id;
     }
 
@@ -328,7 +330,6 @@ public class databaseHelper extends SQLiteOpenHelper {
 
         // insert row
         long fave_workout_id = db.insert(TABLE_FAVORITE_WORKOUTS, null, values);
-
         return fave_workout_id;
     }
 
