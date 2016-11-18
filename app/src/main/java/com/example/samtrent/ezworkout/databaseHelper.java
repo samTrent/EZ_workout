@@ -19,7 +19,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 10;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";
@@ -147,11 +147,13 @@ public class databaseHelper extends SQLiteOpenHelper {
     /**
      * query all workouts
      * */
-    public List<Workout> query_All_Workouts(String muscle_group) {
+    public List<Workout> query_All_Workouts(long muscle_group_id) {
         List<Workout> workouts = new ArrayList<Workout>();
-        String selectQuery = "SELECT * FROM " + TABLE_WORKOUTS + " w INNER JOIN " +
-                TABLE_WORKOUT_LIST + " wl ON wl." + KEY_WL_ID + " = w." + KEY_W_MUSCLE_GROUP +
-                " WHERE wl." + KEY_WL_MUSCLE_GROUP + " = \"" + muscle_group + "\"";
+        String selectQuery = "SELECT * FROM " + TABLE_WORKOUTS + " WHERE " + KEY_W_MUSCLE_GROUP + " = " + muscle_group_id;
+
+                //" w INNER JOIN " +
+                //TABLE_WORKOUT_LIST + " wl ON wl." + KEY_WL_ID + " = w." + KEY_W_MUSCLE_GROUP +
+                //" WHERE wl." + KEY_WL_ID + " = " + muscle_group_id;
 
         Log.e(LOG, selectQuery);
 

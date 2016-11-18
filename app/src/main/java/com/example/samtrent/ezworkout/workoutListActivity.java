@@ -5,76 +5,64 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
-import junit.framework.Assert;
+import java.util.List;
 
-import java.util.ArrayList;
-
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
 
 public class workoutListActivity extends AppCompatActivity {
 
-    //making our arrayList and adapter to temp hold some strings to display
-    ArrayList<String> listOfWorkouts;
-    ArrayAdapter<String> itemAdapter;
+    databaseHelper db;
+    int workout_Group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_list2);
 
+        db = new databaseHelper(getApplicationContext());
+        workout_Group = getIntent().getExtras().getInt("Group");
 
-        // initializing our ArrayList
-        listOfWorkouts = new ArrayList();
+        List<Workout> workout_list = db.query_All_Workouts(workout_Group);
 
-        Log.e("workoutListActivity", "Error in the workout list activity!\n");
-
-        //populating it...
-        for(int i = 0; i < 10; i++)
-        {
-            listOfWorkouts.add("A Temp Workout");
-            Log.i("workoutListActivity", "Created a temp workout\n");
-
+        for (Workout w : workout_list) {
+            add_Workout_Button(w);
+            //Log.i("With Home Query", w.getId() + ": " + w.getName() + ", FK " + w.getFk_muscleGroup());
         }
+    }
 
-        //checking to make sure that we have at least 1 item in our table...
-        if (listOfWorkouts.size() == 0) throw new AssertionError("listOfWorkouts isn't being populated correcly!");
+    public void add_Workout_Button(Workout w) {
+        LinearLayout workouts = (LinearLayout) findViewById(R.id.llWorkouts);
+        Button b = new Button(this);
 
-        //convert to list adapter to display...
-        itemAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listOfWorkouts);
+        b.setOnClickListener(workoutOnClickListener);
+        b.setText(w.getName());
+        b.setTag(w.getId());
+        b.setId(w.getId());
 
-
-        //set it to display!
-        ListView listView = (ListView) findViewById(R.id.listOfWorkouts);
-        listView.setAdapter(itemAdapter);
-
-
-
-        //set up our ability to list a listView item...
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-
-                //tell what view we want to move to...
-                Intent i = new Intent(workoutListActivity.this, workoutDisplayActivity.class);
-
-                //pass data we want to transfer to the next activity...
-                i.putExtra("workout_item", 0);
-
-                //segue to new activity!
-                startActivity(i);
-
-            }
-        });
-
-
+        workouts.addView(b);
     }
 
 
+
+    private View.OnClickListener workoutOnClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+
+            Button imgBtn = (Button) v;
+
+            //tell what view we want to move to...
+            Intent i = new Intent(workoutListActivity.this, workoutDisplayActivity.class);
+
+            //pass data we want to transfer to the next activity...
+            i.putExtra("Workout", v.getId());
+
+            //segue to new activity!
+            startActivity(i);
+        }
+    };
 
 }
 

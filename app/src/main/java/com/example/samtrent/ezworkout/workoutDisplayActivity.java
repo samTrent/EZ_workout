@@ -9,16 +9,31 @@ import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import java.io.InputStream;
 
 public class workoutDisplayActivity extends AppCompatActivity {
+
+    databaseHelper db;
+    int workout_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_display);
+
+        db = new databaseHelper(getApplicationContext());
+        workout_id = getIntent().getExtras().getInt("Workout");
+
+        Workout workout = db.query_Workout(workout_id);
+
+        TextView title = (TextView) findViewById(R.id.workoutTitle);
+        title.setText(workout.getName());
+
+        TextView description = (TextView) findViewById(R.id.instructionText);
+        description.setText(workout.getProcedure());
     }
 
 }
