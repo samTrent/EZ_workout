@@ -12,27 +12,11 @@
     tools:context="com.example.samtrent.ezworkout.workoutDisplayActivity">
 
 
-    <Button
-        android:text="Button"
+    <RatingBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button"
-        android:layout_weight="1" />
-
-    <TextView
-    android:layout_width="229dp"
-    android:layout_height="40dp"
-    android:id="@+id/workoutTitle"
-    android:layout_marginStart="-275dp"
-    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-
-
-    android:layout_alignParentTop="true"
-    android:layout_alignParentStart="true"
-    android:textStyle="normal|bold"
-    android:textAlignment="center"
-    android:textSize="30sp"
-        android:layout_alignEnd="@+id/imageView3" />
+        android:id="@+id/addToFav"
+        android:numStars="1" />
 
     <ImageView
     android:layout_width="250dp"
@@ -43,7 +27,8 @@
     android:layout_alignParentTop="false"
     android:layout_centerHorizontal="true"
         android:adjustViewBounds="false"
-        android:cropToPadding="false" />
+        android:cropToPadding="false"
+        android:layout_weight="1" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -62,6 +47,7 @@
         android:layout_alignParentStart="true">
 
 
+
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/giffy"
             android:layout_width="match_parent"
@@ -70,25 +56,35 @@
             android:paddingTop="80dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:src="@drawable/hammercurl"
+            android:src=""
             app:freezesAnimation="true"/>
 
-            />
+            <TextView
+                android:layout_height="wrap_content"
+                android:id="@+id/instructionText"
+                android:layout_marginBottom="113dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:layout_width="500dp" />
 
-
-        <TextView
-            android:text="Bicep Curl"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            <TextView
+            android:layout_width="229dp"
+            android:layout_height="40dp"
             android:id="@+id/workoutTitle"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="-360dp"
+            android:layout_marginStart="-275dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
 
 
             android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textStyle="normal|bold"
+            android:textAlignment="center"
+            android:textSize="30sp"
+                android:layout_alignEnd="@+id/imageView3"
+                android:layout_weight="1" />
 
         <TextView
             android:layout_width="match_parent"
@@ -113,44 +109,6 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="270dp" />
-
-        <TextView
-            android:text="
-1	Stand up straight with a dumbbell in each hand at arm's length. Keep your elbows close to your torso and rotate the palms of your hands until they are facing forward. This will be your starting position.\n\n
-
-2	 Now, keeping the upper arms stationary, exhale and curl the weights while contracting your biceps. Continue to raise the weights until your biceps are fully contracted and the dumbbells are at shoulder level. Hold the contracted position for a brief pause as you squeeze your biceps.\n\n
-
-3	Then, inhale and slowly begin to lower the dumbbells back to the starting position.\n\n
-
-4	Repeat for the recommended amount of repetitions.\n\n
-
-Variations: There are many possible variations for this movement. For instance, you can perform the exercise sitting down on a bench with or without back support and you can also perform it by alternating arms; first lift the right arm for one repetition, then the left, then the right, etc. "
-            android:layout_width="match_parent"
-            android:id="@+id/instuctionDescriptionText"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:layout_height="415dp"
-            android:layout_marginStart="-350dp"
-            android:layout_marginTop="350dp"
-            android:paddingTop="50dp"
-            android:paddingBottom="20dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
-
-        <TextView
-            android:text="Instructions"
-            android:layout_width="match_parent"
-            android:id="@+id/instuctionText"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-250dp"
-            android:layout_marginTop="315dp"
-            android:paddingBottom="20dp"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
 
 
 

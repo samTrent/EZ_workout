@@ -125,7 +125,7 @@
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            app:srcCompat="@android:drawable/ic_input_add"
+            android:src=""
             android:id="@+id/newFavoritButton"
             android:layout_below="@+id/textView2"
             android:layout_centerHorizontal="true"

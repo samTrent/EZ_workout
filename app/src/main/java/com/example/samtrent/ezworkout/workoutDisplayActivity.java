@@ -1,7 +1,19 @@
 package com.example.samtrent.ezworkout;
 
 import android.os.Bundle;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Movie;
+import android.graphics.Rect;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -37,7 +49,9 @@ public class workoutDisplayActivity extends AppCompatActivity {
 
         TextView description = (TextView) findViewById(R.id.instructionText);
         description.setText(workout.getProcedure());
-    }
+
+        RatingBar add_To_Fav = (RatingBar) findViewById(R.id.addToFav);
+        add_To_Fav.setOnClickListener(addFavOnClickListener);
 
         mGifImageView = (GifImageView) findViewById(R.id.giffy);
 
@@ -59,6 +73,25 @@ public class workoutDisplayActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+    }
+
+
+
+
+    private View.OnClickListener addFavOnClickListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+
+            My_Workouts new_My_Workout = new My_Workouts();
+            long new_My_Workout_Id = db.insert_Favorite_Workout(new_My_Workout, workout_id);
+
+        }
+    };
+
+}
+// ***** WORKING ON GIF PLAYER FUNCTION *****
+
 //        //
 //        gifAnim.addAnimationListener(new AnimationListener()
 //        {
@@ -72,13 +105,6 @@ public class workoutDisplayActivity extends AppCompatActivity {
 //
 //        });
 
-
-
-    }
-
-
-
-}
 
 // test to make sure that we are getting a gif file.
 class GifFileTester
