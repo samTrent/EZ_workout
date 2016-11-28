@@ -19,48 +19,36 @@
         android:layout_alignParentStart="true">
 
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true">
 
 
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="173dp"
-            android:id="@+id/imageView3"
-            android:layout_marginTop="44dp"
-            android:layout_marginLeft="60dp"
-            android:layout_alignParentTop="false"
-            android:layout_centerHorizontal="true"></ImageView>
-            <!-- app:srcCompat="@drawable/pic" /> -->
-            <!-- android:src="@drawable/pic" -->
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/giffy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="500dp"
+            android:paddingTop="80dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:src="@drawable/hammercurl"
+            app:freezesAnimation="true"/>
 
+            />
 
-
-
-        <TextView
-            android:layout_width="330dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-275dp"
-            android:id="@+id/materialText"
-            android:text="Materials needed:
-- Weighted dumbbell
-- (optional) Flat surface to sit on  "
-            android:layout_alignParentTop="false"
-            android:layout_alignParentStart="false"
-            android:layout_marginTop="250dp" />
 
         <TextView
             android:text="Bicep Curl"
             android:layout_width="match_parent"
-            android:layout_height="29dp"
+            android:layout_height="30dp"
             android:id="@+id/workoutTitle"
-            android:layout_marginStart="-275dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="-360dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
 
 
@@ -68,21 +56,66 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:text="Instructions
-1	Stand up straight with a dumbbell in each hand at arm's length. Keep your elbows close to your torso and rotate the palms of your hands until they are facing forward. This will be your starting position.
-2	 Now, keeping the upper arms stationary, exhale and curl the weights while contracting your biceps. Continue to raise the weights until your biceps are fully contracted and the dumbbells are at shoulder level. Hold the contracted position for a brief pause as you squeeze your biceps.
-3	Then, inhale and slowly begin to lower the dumbbells back to the starting position.
-4	Repeat for the recommended amount of repetitions.
-Variations: There are many possible variations for this movement. For instance, you can perform the exercise sitting down on a bench with or without back support and you can also perform it by alternating arms; first lift the right arm for one repetition, then the left, then the right, etc. "
-            android:layout_width="wrap_content"
-            android:id="@+id/instuctionText"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="-380dp"
+            android:layout_marginStart="-350dp"
+            android:id="@+id/materialneededText"
+            android:text="Materials needed:"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentStart="false"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="250dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-340dp"
+            android:id="@+id/materialsText"
+            android:text="- dumbbell stuff"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentStart="false"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="270dp" />
+
+        <TextView
+            android:text="
+1	Stand up straight with a dumbbell in each hand at arm's length. Keep your elbows close to your torso and rotate the palms of your hands until they are facing forward. This will be your starting position.\n\n
+
+2	 Now, keeping the upper arms stationary, exhale and curl the weights while contracting your biceps. Continue to raise the weights until your biceps are fully contracted and the dumbbells are at shoulder level. Hold the contracted position for a brief pause as you squeeze your biceps.\n\n
+
+3	Then, inhale and slowly begin to lower the dumbbells back to the starting position.\n\n
+
+4	Repeat for the recommended amount of repetitions.\n\n
+
+Variations: There are many possible variations for this movement. For instance, you can perform the exercise sitting down on a bench with or without back support and you can also perform it by alternating arms; first lift the right arm for one repetition, then the left, then the right, etc. "
+            android:layout_width="match_parent"
+            android:id="@+id/instuctionDescriptionText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_height="415dp"
+            android:layout_marginStart="-350dp"
             android:layout_marginTop="350dp"
+            android:paddingTop="50dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true" />
 
+        <TextView
+            android:text="Instructions"
+            android:layout_width="match_parent"
+            android:id="@+id/instuctionText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-250dp"
+            android:layout_marginTop="315dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
 
 
     </LinearLayout>
