@@ -42,7 +42,7 @@ public class homeActivity extends AppCompatActivity {
         }
 
     }
-
+    // this is art's comment
 
     public void add_Home_Button(Workout_List wl) {
         LinearLayout l_Home = (LinearLayout) findViewById(R.id.homeLayout);
