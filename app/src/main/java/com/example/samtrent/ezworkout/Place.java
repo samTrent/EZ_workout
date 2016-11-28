@@ -1,23 +1,40 @@
 package com.example.samtrent.ezworkout;
 
-import com.j256.ormlite.field.DatabaseField;
-
-/**
- * Created by Elgalad on 10/28/16.
- */
 
 public class Place {
 
-    @DatabaseField(generatedId = true)
-    int id;
-    @DatabaseField(index = true)
-    String string;
-    @DatabaseField
-    String place;
+    private int id;
+    private String place;
 
+    // constructors
+    public Place() {
+    }
 
-    Place() {
-        // needed by ormlite
+    public Place(String newPlace) {
+        setPlace(newPlace);
+    }
+
+    public Place(int newId, String newPlace) {
+        setId(newId);
+        setPlace(newPlace);
+    }
+
+    public String getPlace() {
+
+        return place;
+    }
+
+    public void setPlace(String p) {
+        place = p;
+    }
+
+    public int getId() {
+
+        return id;
+    }
+
+    public void setId(int i) {
+        id = i;
     }
 
 }

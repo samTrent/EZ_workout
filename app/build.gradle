@@ -29,4 +29,5 @@ dependencies {
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'// needed for gif animation
 
+    compile 'com.j256.ormlite:ormlite-core:4.48'
 }
