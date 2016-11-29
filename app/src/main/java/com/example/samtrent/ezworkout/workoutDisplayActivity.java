@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -47,8 +50,8 @@ public class workoutDisplayActivity extends AppCompatActivity {
         *  the rating bar for the different
         *  cases
          */
-        if (!workout.getIsFavorite()) {
-            LinearLayout rBar = (LinearLayout) findViewById(R.id.workoutDisplay);
+        if (workout.getIsFavorite() == 0) {
+            RelativeLayout rBar = (RelativeLayout) findViewById(R.id.activity_workout_display);
 
             RatingBar add_To_Fav = new RatingBar(workoutDisplayActivity.this);
             add_To_Fav.setNumStars(1);
@@ -56,8 +59,9 @@ public class workoutDisplayActivity extends AppCompatActivity {
             add_To_Fav.setOnRatingBarChangeListener(addToFavListener);
 
             rBar.addView(add_To_Fav);
-        } else {
-            LinearLayout rBar = (LinearLayout) findViewById(R.id.workoutDisplay);
+        }
+        else if (workout.getIsFavorite() == 1){
+            RelativeLayout rBar = (RelativeLayout) findViewById(R.id.activity_workout_display);
 
             RatingBar remove_From_Fav = new RatingBar(workoutDisplayActivity.this);
             remove_From_Fav.setNumStars(1);
@@ -67,7 +71,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
             rBar.addView(remove_From_Fav);
         }
 
-
+        /*
         mGifImageView = (GifImageView) findViewById(R.id.giffy);
 
         // check to see if the gif file exsists...
@@ -87,6 +91,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
             Log.e("make gif", "onCreate: could not generate gif", e);
             e.printStackTrace();
         }
+        */
 
     }
 
@@ -101,16 +106,15 @@ public class workoutDisplayActivity extends AppCompatActivity {
         @Override
         public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
 
+            Toast.makeText(getApplicationContext(), "Added to Favorites", Toast.LENGTH_LONG).show();
+
             My_Workouts new_My_Workout = new My_Workouts();
             long new_My_Workout_Id = db.insert_Favorite_Workout(new_My_Workout, workout_id);
 
-            Workout workout = db.query_Workout(workout_id);
-            workout.setIsFavorite(true);
+            db.update_Fav_Workout(1, workout_id);
+            //Workout workout = db.query_Workout(workout_id);
+            //workout.setIsFavorite(1);
 
-            Intent intent = new Intent(workoutDisplayActivity.this, workoutDisplayActivity.class);
-            intent.putExtra("Workout", workout_id);
-
-            startActivity(intent);
         }
 
     };
@@ -125,15 +129,14 @@ public class workoutDisplayActivity extends AppCompatActivity {
         @Override
         public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
 
+            Toast.makeText(getApplicationContext(), "Removed from Favorites", Toast.LENGTH_LONG).show();
+
             db.remove_Favorite_Workout(workout_id);
 
-            Workout workout = db.query_Workout(workout_id);
-            workout.setIsFavorite(false);
+            db.update_Fav_Workout(0, workout_id);
+            //Workout workout = db.query_Workout(workout_id);
+            //workout.setIsFavorite(0);
 
-            Intent intent = new Intent(workoutDisplayActivity.this, workoutDisplayActivity.class);
-            intent.putExtra("Workout", workout_id);
-
-            startActivity(intent);
         }
 
     };

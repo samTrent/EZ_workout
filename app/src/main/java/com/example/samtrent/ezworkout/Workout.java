@@ -11,11 +11,11 @@ public class Workout {
     private int fk_muscleGroup;
     private String name;
     private String procedure;
-    private boolean isFavorite;
+    private int isFavorite;
 
     // constructors
     public Workout() {
-        isFavorite = false;
+        isFavorite = 0;
     }
 
     // set foreign key with Workout_List object
@@ -23,7 +23,7 @@ public class Workout {
         setId(newId);
         setName(nwname);
         setProcedure(nwprocedure);
-        isFavorite = false;
+        isFavorite = 0;
     }
 
     // set foreign key directly with an int
@@ -32,7 +32,7 @@ public class Workout {
         setName(nwname);
         setFk_muscleGroup(nw_fk_MGroup);
         setProcedure(nwprocedure);
-        isFavorite = false;
+        isFavorite = 0;
     }
 
     public int getId() {
@@ -71,11 +71,11 @@ public class Workout {
         procedure = p;
     }
 
-    public boolean getIsFavorite() {
+    public int getIsFavorite() {
         return isFavorite;
     }
 
-    public void setIsFavorite(boolean f) {
+    public void setIsFavorite(int f) {
         isFavorite = f;
     }
 

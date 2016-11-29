@@ -19,7 +19,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 10;
+    private static final int DATABASE_VERSION = 11;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";
@@ -140,6 +140,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         w.setName((c.getString(c.getColumnIndex(KEY_W_NAME))));
         w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
         w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
+        w.setIsFavorite(c.getInt(c.getColumnIndex(KEY_W_IS_FAVORITE)));
 
         return w;
     }
@@ -174,6 +175,14 @@ public class databaseHelper extends SQLiteOpenHelper {
             } while (c.moveToNext());
         }
         return workouts;
+    }
+
+    public void update_Fav_Workout(int isFav, int id) {
+        String update = "UPDATE " + TABLE_WORKOUTS + " SET " + KEY_W_IS_FAVORITE +
+                " = " + isFav + " WHERE " + KEY_W_ID + " = " + id;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(update);
     }
 
     /**************************************************************************
@@ -365,10 +374,10 @@ public class databaseHelper extends SQLiteOpenHelper {
      * */
     public List<Workout> query_All_My_Workouts() {
         List<Workout> my_workouts = new ArrayList<Workout>();
-        String selectQuery = "SELECT  w." + KEY_W_ID + ", w." + KEY_W_MUSCLE_GROUP +
-                ", w." + KEY_W_NAME + ", w." + KEY_W_PROCEDURE + " FROM " +
-                TABLE_FAVORITE_WORKOUTS + "f INNER JOIN " + TABLE_WORKOUTS + "w ON f." +
-                KEY_FW_WORKOUT + " = w." + KEY_W_ID;
+        String selectQuery = "SELECT " + KEY_W_ID + ", " + KEY_W_MUSCLE_GROUP +
+                ", " + KEY_W_NAME + ", " + KEY_W_PROCEDURE + " FROM " +
+                TABLE_WORKOUTS + " INNER JOIN " + TABLE_FAVORITE_WORKOUTS + " ON " +
+                KEY_W_ID + " = " + KEY_FW_WORKOUT;
 
         Log.e(LOG, selectQuery);
 

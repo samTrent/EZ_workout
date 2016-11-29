@@ -25,16 +25,12 @@ public class homeActivity extends AppCompatActivity {
          */
         db = new databaseHelper(getApplicationContext());
 
-        /*
-        *   Fill the database tables if version
-        *   is less than 10
-         */
-        if (db.getDatabaseVersion() < 10) {
-            Fill_Database fd = new Fill_Database(db);
-            fd.fill_Place_Table();
-            fd.fill_Workout_List_Table();
-            fd.fill_Workout_Table();
-        }
+
+        Fill_Database fd = new Fill_Database(db);
+        fd.fill_Place_Table();
+        fd.fill_Workout_List_Table();
+        fd.fill_Workout_Table();
+
 
         /*
         *   Query the my workouts table for
@@ -42,8 +38,10 @@ public class homeActivity extends AppCompatActivity {
         *   a button for each of them
          */
         List<Workout> my_fav_list = db.query_All_My_Workouts();
-        for (Workout w : my_fav_list) {
-            add_My_Workout_Button(w);
+        if (my_fav_list.size() != 0) {
+            for (Workout w : my_fav_list) {
+                add_My_Workout_Button(w);
+            }
         }
 
         /*
@@ -81,6 +79,8 @@ public class homeActivity extends AppCompatActivity {
         ib.setOnClickListener(straightToWorkoutOnClickListener);
         ib.setTag(w.getId());
         ib.setId(w.getId());
+
+        l_Fav.addView(ib);
     }
 
     /*
