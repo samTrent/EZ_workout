@@ -15,6 +15,7 @@ public class Workout {
 
     // constructors
     public Workout() {
+        isFavorite = false;
     }
 
     // set foreign key with Workout_List object
@@ -22,6 +23,7 @@ public class Workout {
         setId(newId);
         setName(nwname);
         setProcedure(nwprocedure);
+        isFavorite = false;
     }
 
     // set foreign key directly with an int
@@ -30,6 +32,7 @@ public class Workout {
         setName(nwname);
         setFk_muscleGroup(nw_fk_MGroup);
         setProcedure(nwprocedure);
+        isFavorite = false;
     }
 
     public int getId() {

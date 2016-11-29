@@ -363,9 +363,12 @@ public class databaseHelper extends SQLiteOpenHelper {
     /**
      * query all my_workouts
      * */
-    public List<My_Workouts> query_All_My_Workouts() {
-        List<My_Workouts> my_workouts = new ArrayList<My_Workouts>();
-        String selectQuery = "SELECT  * FROM " + TABLE_FAVORITE_WORKOUTS;
+    public List<Workout> query_All_My_Workouts() {
+        List<Workout> my_workouts = new ArrayList<Workout>();
+        String selectQuery = "SELECT  w." + KEY_W_ID + ", w." + KEY_W_MUSCLE_GROUP +
+                ", w." + KEY_W_NAME + ", w." + KEY_W_PROCEDURE + " FROM " +
+                TABLE_FAVORITE_WORKOUTS + "f INNER JOIN " + TABLE_WORKOUTS + "w ON f." +
+                KEY_FW_WORKOUT + " = w." + KEY_W_ID;
 
         Log.e(LOG, selectQuery);
 
@@ -375,16 +378,30 @@ public class databaseHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (c.moveToFirst()) {
             do {
-                My_Workouts mw = new My_Workouts();
-                mw.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
-                mw.setFk_workout((c.getInt(c.getColumnIndex(KEY_FW_WORKOUT))));
+                Workout w = new Workout();
+                w.setId(c.getInt(c.getColumnIndex(KEY_W_ID)));
+                w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
+                w.setName(c.getString(c.getColumnIndex(KEY_W_NAME)));
+                w.setProcedure(c.getString(c.getColumnIndex(KEY_W_PROCEDURE)));
 
                 // adding to tags list
-                my_workouts.add(mw);
+                my_workouts.add(w);
             } while (c.moveToNext());
         }
         return my_workouts;
     }
+
+
+
+    public void remove_Favorite_Workout(int w_Id) {
+        String removeQuery = "DELETE FROM " + TABLE_FAVORITE_WORKOUTS + " WHERE " +
+                KEY_FW_WORKOUT + " = " + w_Id;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(removeQuery);
+    }
+
+
 
     public void closeDB() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -400,6 +417,10 @@ public class databaseHelper extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUT_LIST);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLACE);
         }
+    }
+
+    public int getDatabaseVersion() {
+        return DATABASE_VERSION;
     }
 
 }

@@ -1,21 +1,12 @@
 package com.example.samtrent.ezworkout;
 
+import android.content.Intent;
 import android.os.Bundle;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Movie;
-import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.io.IOException;
@@ -50,8 +41,32 @@ public class workoutDisplayActivity extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.instructionText);
         description.setText(workout.getProcedure());
 
-        RatingBar add_To_Fav = (RatingBar) findViewById(R.id.addToFav);
-        add_To_Fav.setOnClickListener(addFavOnClickListener);
+        /*
+        *  check if the given workout is a
+        *  favorite workout or not and create
+        *  the rating bar for the different
+        *  cases
+         */
+        if (!workout.getIsFavorite()) {
+            LinearLayout rBar = (LinearLayout) findViewById(R.id.workoutDisplay);
+
+            RatingBar add_To_Fav = new RatingBar(workoutDisplayActivity.this);
+            add_To_Fav.setNumStars(1);
+            add_To_Fav.setRating(0);
+            add_To_Fav.setOnRatingBarChangeListener(addToFavListener);
+
+            rBar.addView(add_To_Fav);
+        } else {
+            LinearLayout rBar = (LinearLayout) findViewById(R.id.workoutDisplay);
+
+            RatingBar remove_From_Fav = new RatingBar(workoutDisplayActivity.this);
+            remove_From_Fav.setNumStars(1);
+            remove_From_Fav.setRating(1);
+            remove_From_Fav.setOnRatingBarChangeListener(removeFromFavListener);
+
+            rBar.addView(remove_From_Fav);
+        }
+
 
         mGifImageView = (GifImageView) findViewById(R.id.giffy);
 
@@ -76,17 +91,51 @@ public class workoutDisplayActivity extends AppCompatActivity {
     }
 
 
-
-
-    private View.OnClickListener addFavOnClickListener = new View.OnClickListener() {
+    /*
+    *  add the given workout to the
+    *  favorite workouts table if the
+    *  rating bar is selected
+    */
+    private RatingBar.OnRatingBarChangeListener addToFavListener = new RatingBar.OnRatingBarChangeListener() {
 
         @Override
-        public void onClick(View v) {
+        public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
 
             My_Workouts new_My_Workout = new My_Workouts();
             long new_My_Workout_Id = db.insert_Favorite_Workout(new_My_Workout, workout_id);
 
+            Workout workout = db.query_Workout(workout_id);
+            workout.setIsFavorite(true);
+
+            Intent intent = new Intent(workoutDisplayActivity.this, workoutDisplayActivity.class);
+            intent.putExtra("Workout", workout_id);
+
+            startActivity(intent);
         }
+
+    };
+
+    /*
+    *  remove the given workout from the
+    *  favorite workouts table if the
+    *  rating bar is unselected
+    */
+    private RatingBar.OnRatingBarChangeListener removeFromFavListener = new RatingBar.OnRatingBarChangeListener() {
+
+        @Override
+        public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+
+            db.remove_Favorite_Workout(workout_id);
+
+            Workout workout = db.query_Workout(workout_id);
+            workout.setIsFavorite(false);
+
+            Intent intent = new Intent(workoutDisplayActivity.this, workoutDisplayActivity.class);
+            intent.putExtra("Workout", workout_id);
+
+            startActivity(intent);
+        }
+
     };
 
 }
