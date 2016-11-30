@@ -3,6 +3,7 @@ package com.example.samtrent.ezworkout;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -51,27 +52,30 @@ public class workoutDisplayActivity extends AppCompatActivity {
         *  cases
          */
         if (workout.getIsFavorite() == 0) {
-            RelativeLayout rBar = (RelativeLayout) findViewById(R.id.activity_workout_display);
+            ConstraintLayout rBar = (ConstraintLayout) findViewById(R.id.activity_workout_display);
 
             RatingBar add_To_Fav = new RatingBar(workoutDisplayActivity.this);
             add_To_Fav.setNumStars(1);
             add_To_Fav.setRating(0);
+            add_To_Fav.setProgress(0);
             add_To_Fav.setOnRatingBarChangeListener(addToFavListener);
 
             rBar.addView(add_To_Fav);
         }
         else if (workout.getIsFavorite() == 1){
-            RelativeLayout rBar = (RelativeLayout) findViewById(R.id.activity_workout_display);
+            ConstraintLayout rBar = (ConstraintLayout) findViewById(R.id.activity_workout_display);
 
             RatingBar remove_From_Fav = new RatingBar(workoutDisplayActivity.this);
             remove_From_Fav.setNumStars(1);
             remove_From_Fav.setRating(1);
+            remove_From_Fav.setProgress(100);
             remove_From_Fav.setOnRatingBarChangeListener(removeFromFavListener);
 
             rBar.addView(remove_From_Fav);
         }
 
-        /*
+
+
         mGifImageView = (GifImageView) findViewById(R.id.giffy);
 
         // check to see if the gif file exsists...
@@ -91,7 +95,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
             Log.e("make gif", "onCreate: could not generate gif", e);
             e.printStackTrace();
         }
-        */
+
 
     }
 
