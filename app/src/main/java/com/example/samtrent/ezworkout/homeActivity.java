@@ -68,6 +68,27 @@ public class homeActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        LinearLayout l_Fav = (LinearLayout) findViewById(R.id.favLayout);
+        l_Fav.removeAllViews();
+
+        /*
+        *   Query the my workouts table for
+        *   every favorite workout and add
+        *   a button for each of them
+         */
+        List<Workout> my_fav_list = db.query_All_My_Workouts();
+        if (my_fav_list.size() != 0) {
+            for (Workout w : my_fav_list) {
+                add_My_Workout_Button(w);
+            }
+        }
+    }
+
+
 
     /*
     *   Add each button for every

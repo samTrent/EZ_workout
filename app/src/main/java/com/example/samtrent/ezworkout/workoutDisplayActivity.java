@@ -55,6 +55,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
             ConstraintLayout rBar = (ConstraintLayout) findViewById(R.id.activity_workout_display);
 
             RatingBar add_To_Fav = new RatingBar(workoutDisplayActivity.this);
+            add_To_Fav.setId(0);
             add_To_Fav.setNumStars(1);
             add_To_Fav.setRating(0);
             add_To_Fav.setProgress(0);
@@ -66,6 +67,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
             ConstraintLayout rBar = (ConstraintLayout) findViewById(R.id.activity_workout_display);
 
             RatingBar remove_From_Fav = new RatingBar(workoutDisplayActivity.this);
+            remove_From_Fav.setId(0);
             remove_From_Fav.setNumStars(1);
             remove_From_Fav.setRating(1);
             remove_From_Fav.setProgress(100);
@@ -116,9 +118,10 @@ public class workoutDisplayActivity extends AppCompatActivity {
             long new_My_Workout_Id = db.insert_Favorite_Workout(new_My_Workout, workout_id);
 
             db.update_Fav_Workout(1, workout_id);
-            //Workout workout = db.query_Workout(workout_id);
-            //workout.setIsFavorite(1);
 
+            RatingBar rb = (RatingBar) findViewById(0);
+            rb.setRating(1);
+            rb.setOnRatingBarChangeListener(removeFromFavListener);
         }
 
     };
@@ -138,9 +141,12 @@ public class workoutDisplayActivity extends AppCompatActivity {
             db.remove_Favorite_Workout(workout_id);
 
             db.update_Fav_Workout(0, workout_id);
-            //Workout workout = db.query_Workout(workout_id);
-            //workout.setIsFavorite(0);
+            Workout workout = db.query_Workout(workout_id);
+            workout.setIsFavorite(0);
 
+            RatingBar rb = (RatingBar) findViewById(0);
+            rb.setRating(0);
+            rb.setOnRatingBarChangeListener(addToFavListener);
         }
 
     };
