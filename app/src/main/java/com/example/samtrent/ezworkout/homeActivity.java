@@ -1,6 +1,8 @@
 package com.example.samtrent.ezworkout;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -24,7 +26,6 @@ public class homeActivity extends AppCompatActivity {
         *   and inserting data
          */
         db = new databaseHelper(getApplicationContext());
-
 
         Fill_Database fd = new Fill_Database(db);
         fd.fill_Place_Table();
@@ -66,6 +67,8 @@ public class homeActivity extends AppCompatActivity {
 
     }
 
+
+
     /*
     *   Add each button for every
     *   workout in the my workouts
@@ -90,12 +93,15 @@ public class homeActivity extends AppCompatActivity {
      */
     public void add_Home_Button(Workout_List wl) {
         LinearLayout l_Home = (LinearLayout) findViewById(R.id.homeLayout);
+        String icon = wl.getIcon();
+        int id = this.getResources().getIdentifier(icon, "drawable", this.getPackageName());
 
         ImageButton ib = new ImageButton(homeActivity.this);
         ib.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
         ib.setOnClickListener(trialOnClickListener);
         ib.setTag(wl.getId());
         ib.setId(wl.getId());
+        ib.setImageResource(id);
 
         l_Home.addView(ib);
     }
@@ -107,12 +113,15 @@ public class homeActivity extends AppCompatActivity {
      */
     public void add_Gym_Button(Workout_List wl) {
         LinearLayout l_Gym = (LinearLayout) findViewById(R.id.gymLayout);
+        String icon = wl.getIcon();
+        int id = this.getResources().getIdentifier(icon, "drawable", this.getPackageName());
 
         ImageButton ib = new ImageButton(homeActivity.this);
         ib.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
         ib.setOnClickListener(trialOnClickListener);
         ib.setTag(wl.getId());
         ib.setId(wl.getId());
+        ib.setImageResource(id);
 
         l_Gym.addView(ib);
     }

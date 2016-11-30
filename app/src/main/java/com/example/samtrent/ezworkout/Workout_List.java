@@ -5,6 +5,7 @@ public class Workout_List {
     private int id;
     private int fk_place;
     private String MuscleGroup;
+    private String Icon;
 
     // constructors
     public Workout_List() {
@@ -21,10 +22,11 @@ public class Workout_List {
     }
 
     // This setter takes in an int as a direct foreign key for place
-    public Workout_List(int newId, String newMGroup, int newPlace) {
+    public Workout_List(int newId, String newMGroup, int newPlace, String Icon) {
         setId(newId);
         setMuscleGroup(newMGroup);
         setFk_place(newPlace);
+        setIcon(Icon);
     }
 
     public String getMuscleGroup() {
@@ -58,6 +60,10 @@ public class Workout_List {
     public void setId(int i) {
         id = i;
     }
+
+    public void setIcon(String Icon) { this.Icon = Icon; }
+
+    public String getIcon() { return Icon; }
 
 }
 

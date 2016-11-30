@@ -19,7 +19,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 18;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";
@@ -42,12 +42,14 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String KEY_WL_ID = "WL_ID";
     private static final String KEY_WL_MUSCLE_GROUP = "WL_Muscle_Group";
     private static final String KEY_WL_PLACE = "WL_Place";
+    private static final String KEY_WL_ICON = "WL_Icon";
     // Workouts_list table create
     private static final String CREATE_WORKOUTS_LIST_TABLE =
             "CREATE TABLE " + TABLE_WORKOUT_LIST +
                     "(" + KEY_WL_ID + " INTEGER PRIMARY KEY," +
                     KEY_WL_MUSCLE_GROUP + " TEXT, " +
-                    KEY_WL_PLACE + " INTEGER" + ")";
+                    KEY_WL_PLACE + " INTEGER, " +
+                    KEY_WL_ICON + " TEXT" + ")";
 
     // Places table and column names
     private static final String TABLE_PLACE = "Places";
@@ -91,6 +93,8 @@ public class databaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUT_LIST);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_WORKOUTS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITE_WORKOUTS);
+
+        Log.e("DB", "The Upgrade method was called");
 
         // create new tables
         onCreate(db);
@@ -200,6 +204,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         values.put(KEY_WL_ID, workout_list.getId());
         values.put(KEY_WL_MUSCLE_GROUP, workout_list.getMuscleGroup());
         values.put(KEY_WL_PLACE, place_id);
+        values.put(KEY_WL_ICON, workout_list.getIcon());
 
         // insert row
         long workout_list_id = db.insert(TABLE_WORKOUT_LIST, null, values);
@@ -226,6 +231,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         wl.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
         wl.setMuscleGroup((c.getString(c.getColumnIndex(KEY_WL_MUSCLE_GROUP))));
         wl.setFk_place((c.getInt(c.getColumnIndex(KEY_WL_PLACE))));
+        wl.setIcon(c.getString(c.getColumnIndex(KEY_WL_ICON)));
 
         return wl;
     }
@@ -250,6 +256,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 wl.setId(c.getInt(c.getColumnIndex(KEY_WL_ID)));
                 wl.setMuscleGroup((c.getString(c.getColumnIndex(KEY_WL_MUSCLE_GROUP))));
                 wl.setFk_place((c.getInt(c.getColumnIndex(KEY_WL_PLACE))));
+                wl.setIcon(c.getString(c.getColumnIndex(KEY_WL_ICON)));
 
                 // adding to tags list
                 workout_lists.add(wl);
@@ -431,5 +438,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     public int getDatabaseVersion() {
         return DATABASE_VERSION;
     }
+
+    public String getDatabaseName() { return DATABASE_NAME; }
 
 }
