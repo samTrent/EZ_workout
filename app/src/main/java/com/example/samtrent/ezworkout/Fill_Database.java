@@ -267,12 +267,12 @@ public class Fill_Database {
     public void fill_Workout_Table() {
 
         // Add gym arm workouts
-        Workout basic_Curl_A_G = new Workout(1, "Consentration Curl", 205, basic_Curl_A_G_Procedure);
-        Workout hammer_Curl_A_G = new Workout(2, "Hammer Curl", 205, hammer_Curl_A_G_Procedure);
-        Workout dips_A_G = new Workout(3, "Dips", 205, dips_A_G_Procedure);
-        Workout tricep_Extension_A_G = new Workout(4, "Tricep Extension", 205, tricep_Extension_A_G_Procedure);
-        Workout forearm_Curl_A_G = new Workout(5, "Forearm Curl", 205, forearm_Curl_A_G_Procedure);
-        Workout weighted_Windup_A_G = new Workout(6, "Weighted Windup", 205, weighted_Windup_A_G_Procedure);
+        Workout basic_Curl_A_G = new Workout(1, "Consentration Curl", 205, basic_Curl_A_G_Procedure, null);
+        Workout hammer_Curl_A_G = new Workout(2, "Hammer Curl", 205, hammer_Curl_A_G_Procedure, "hammercurl");
+        Workout dips_A_G = new Workout(3, "Dips", 205, dips_A_G_Procedure, null);
+        Workout tricep_Extension_A_G = new Workout(4, "Tricep Extension", 205, tricep_Extension_A_G_Procedure, null);
+        Workout forearm_Curl_A_G = new Workout(5, "Forearm Curl", 205, forearm_Curl_A_G_Procedure, null);
+        Workout weighted_Windup_A_G = new Workout(6, "Weighted Windup", 205, weighted_Windup_A_G_Procedure, null);
 
         basic_Curl_A_G_Id = db.insert_Workout(basic_Curl_A_G, arms_G_Id);
         hammer_Curl_A_G_Id = db.insert_Workout(hammer_Curl_A_G, arms_G_Id);
@@ -282,12 +282,12 @@ public class Fill_Database {
         weighted_Windup_A_G_Id = db.insert_Workout(weighted_Windup_A_G, arms_G_Id);
 
         // Add gym leg workouts
-        Workout squats_L_G = new Workout(7, "Squats", 206, squats_L_G_Procedure);
-        Workout leg_Press_L_G = new Workout(8, "Leg Press", 206, leg_Press_L_G_Procedure);
-        Workout calf_Raises_L_G = new Workout(9, "Calf Raises", 206, calf_Raises_L_G_Procedure);
-        Workout leg_Curl_L_G = new Workout(10, "Leg Curl", 206, leg_Curl_L_G_Procedure);
-        Workout leg_Extension_L_G = new Workout(11, "Leg Extension", 206, leg_Extension_L_G_Procedure);
-        Workout dead_Lift_L_G = new Workout(12, "Dead Lift", 206, dead_Lift_L_G_Procedure);
+        Workout squats_L_G = new Workout(7, "Squats", 206, squats_L_G_Procedure, null);
+        Workout leg_Press_L_G = new Workout(8, "Leg Press", 206, leg_Press_L_G_Procedure, null);
+        Workout calf_Raises_L_G = new Workout(9, "Calf Raises", 206, calf_Raises_L_G_Procedure, null);
+        Workout leg_Curl_L_G = new Workout(10, "Leg Curl", 206, leg_Curl_L_G_Procedure, null);
+        Workout leg_Extension_L_G = new Workout(11, "Leg Extension", 206, leg_Extension_L_G_Procedure, null);
+        Workout dead_Lift_L_G = new Workout(12, "Dead Lift", 206, dead_Lift_L_G_Procedure, null);
 
         squats_L_G_Id = db.insert_Workout(squats_L_G, legs_G_Id);
         leg_Press_L_G_Id = db.insert_Workout(leg_Press_L_G, legs_G_Id);
@@ -297,13 +297,13 @@ public class Fill_Database {
         dead_Lift_L_G_Id = db.insert_Workout(dead_Lift_L_G, legs_G_Id);
 
         // Add gym back workouts
-        Workout lat_Pulldown_B_G = new Workout(13, "Lateral Pulldown", 207, lat_Pulldown_B_G_Procedure);
-        Workout bent_Over_Row_B_G = new Workout(14, "Bent Over Row", 207, bent_Over_Row_B_G_Procedure);
-        Workout single_Arm_Dumbbell_Row_B_G = new Workout(15, "Single-Arm Dumbbell Row", 207, single_Arm_Dumbbell_Row_B_G_Procedure);
-        Workout weighted_Shrugs_B_G = new Workout(16, "Weighted Shrugs", 207, weighted_Shrugs_B_G_Procedure);
-        Workout reverse_Flies_B_G = new Workout(17, "Reverse Flies", 207, reverse_Flies_B_G_Procedure);
-        Workout military_Press_B_G = new Workout(18, "Military Press", 207, military_Press_B_G_Procedure);
-        Workout side_Lateral_Raises_B_G = new Workout(19, "Side Lateral Raises", 207, side_Lateral_Raises_B_G_Procedure);
+        Workout lat_Pulldown_B_G = new Workout(13, "Lateral Pulldown", 207, lat_Pulldown_B_G_Procedure, null);
+        Workout bent_Over_Row_B_G = new Workout(14, "Bent Over Row", 207, bent_Over_Row_B_G_Procedure, null);
+        Workout single_Arm_Dumbbell_Row_B_G = new Workout(15, "Single-Arm Dumbbell Row", 207, single_Arm_Dumbbell_Row_B_G_Procedure, null);
+        Workout weighted_Shrugs_B_G = new Workout(16, "Weighted Shrugs", 207, weighted_Shrugs_B_G_Procedure, null);
+        Workout reverse_Flies_B_G = new Workout(17, "Reverse Flies", 207, reverse_Flies_B_G_Procedure, null);
+        Workout military_Press_B_G = new Workout(18, "Military Press", 207, military_Press_B_G_Procedure, null);
+        Workout side_Lateral_Raises_B_G = new Workout(19, "Side Lateral Raises", 207, side_Lateral_Raises_B_G_Procedure, null);
 
         lat_Pulldown_B_G_Id = db.insert_Workout(lat_Pulldown_B_G, back_G_Id);
         bent_Over_Row_B_G_Id = db.insert_Workout(bent_Over_Row_B_G, back_G_Id);
@@ -314,10 +314,10 @@ public class Fill_Database {
         side_Lateral_Raises_B_G_Id = db.insert_Workout(side_Lateral_Raises_B_G, back_G_Id);
 
         // Add gym chest workouts
-        Workout bench_Press_C_G = new Workout(20, "Bench Press", 208, bench_Press_C_G_Procedure);
-        Workout dumbbell_Bench_Press_C_G = new Workout(21, "Dumbbell Bench Press", 208, dumbbell_Bench_Press_C_G_Procedure);
-        Workout incline_Dumbbell_Press_C_G = new Workout(22, "Incline Dumbbell Press", 208, incline_Dumbbell_Press_C_G_Procedure);
-        Workout decline_Dumbbell_Press_C_G = new Workout(23, "Decline Dumbbell Press", 208, decline_Dumbbell_Press_C_G_Procedure);
+        Workout bench_Press_C_G = new Workout(20, "Bench Press", 208, bench_Press_C_G_Procedure, null);
+        Workout dumbbell_Bench_Press_C_G = new Workout(21, "Dumbbell Bench Press", 208, dumbbell_Bench_Press_C_G_Procedure, null);
+        Workout incline_Dumbbell_Press_C_G = new Workout(22, "Incline Dumbbell Press", 208, incline_Dumbbell_Press_C_G_Procedure, null);
+        Workout decline_Dumbbell_Press_C_G = new Workout(23, "Decline Dumbbell Press", 208, decline_Dumbbell_Press_C_G_Procedure, null);
 
         bench_Press_C_G_Id = db.insert_Workout(bench_Press_C_G, chest_G_Id);
         dumbbell_Bench_Press_C_G_Id = db.insert_Workout(dumbbell_Bench_Press_C_G, chest_G_Id);
@@ -325,12 +325,12 @@ public class Fill_Database {
         decline_Dumbbell_Press_C_G_Id = db.insert_Workout(decline_Dumbbell_Press_C_G, chest_G_Id);
 
         // Add home arm workouts
-        Workout band_Basic_Curl_A_H = new Workout(24, "Band Basic Curl", 101, band_Basic_Curl_A_H_Procedure);
-        Workout band_Hammer_Curl_A_H = new Workout(25, "Band Hammer Curl", 101, band_Hammer_Curl_A_H_Procedure);
-        Workout chair_Dips_A_H = new Workout(26, "Chair Dips", 101, chair_Dips_A_H_Procedure);
-        Workout band_Tricep_Extension_A_H = new Workout(27, "Band Tricep Extension", 101, band_Tricep_Extension_A_H_Procedure);
-        Workout band_Forearm_Curl_A_H = new Workout(28, "Band Forearm Curl", 101, band_Forearm_Curl_A_H_Procedure);
-        Workout band_Tricep_Pulldown_A_H = new Workout(29, "Band Tricep Pulldown", 101, band_Tricep_Pulldown_A_H_Procedure);
+        Workout band_Basic_Curl_A_H = new Workout(24, "Band Basic Curl", 101, band_Basic_Curl_A_H_Procedure, null);
+        Workout band_Hammer_Curl_A_H = new Workout(25, "Band Hammer Curl", 101, band_Hammer_Curl_A_H_Procedure, null);
+        Workout chair_Dips_A_H = new Workout(26, "Chair Dips", 101, chair_Dips_A_H_Procedure, null);
+        Workout band_Tricep_Extension_A_H = new Workout(27, "Band Tricep Extension", 101, band_Tricep_Extension_A_H_Procedure, null);
+        Workout band_Forearm_Curl_A_H = new Workout(28, "Band Forearm Curl", 101, band_Forearm_Curl_A_H_Procedure, null);
+        Workout band_Tricep_Pulldown_A_H = new Workout(29, "Band Tricep Pulldown", 101, band_Tricep_Pulldown_A_H_Procedure, null);
 
         band_Basic_Curl_A_H_Id = db.insert_Workout(band_Basic_Curl_A_H, arms_H_Id);
         band_Hammer_Curl_A_H_Id = db.insert_Workout(band_Hammer_Curl_A_H, arms_H_Id);
@@ -340,10 +340,10 @@ public class Fill_Database {
         band_Tricep_Pulldown_A_H_Id = db.insert_Workout(band_Tricep_Pulldown_A_H, arms_H_Id);
 
         // Add home leg workouts
-        Workout air_Squats_L_H = new Workout(30, "Air Squats/Band Squats", 102, air_Squats_L_H_Procedure);
-        Workout lunges_L_H = new Workout(31, "Lunges", 102, lunges_L_H_Procedure);
-        Workout stair_Calf_Raises_L_H = new Workout(32, "Stair Calf Raises", 102, stair_Calf_Raises_L_H_Procedure);
-        Workout jump_Rope_L_H = new Workout(33, "Jump Rope", 102, "Coming Soon");
+        Workout air_Squats_L_H = new Workout(30, "Air Squats/Band Squats", 102, air_Squats_L_H_Procedure, null);
+        Workout lunges_L_H = new Workout(31, "Lunges", 102, lunges_L_H_Procedure, null);
+        Workout stair_Calf_Raises_L_H = new Workout(32, "Stair Calf Raises", 102, stair_Calf_Raises_L_H_Procedure, null);
+        Workout jump_Rope_L_H = new Workout(33, "Jump Rope", 102, "Coming Soon", null);
 
         air_Squats_L_H_Id = db.insert_Workout(air_Squats_L_H, legs_H_Id);
         lunges_L_H_Id = db.insert_Workout(lunges_L_H, legs_H_Id);
@@ -351,12 +351,12 @@ public class Fill_Database {
         jump_Rope_L_H_Id = db.insert_Workout(jump_Rope_L_H, legs_H_Id);
 
         // Add home back workouts
-        Workout closeGrip_Pullup_B_H = new Workout(34, "Close-Grip Pull-Up", 103, closeGrip_Pullup_B_H_Procedure);
-        Workout wideGrip_Pullup_B_H = new Workout(35, "Wide-Grip Pull-Up", 103, wideGrip_Pullup_B_H_Procedure);
-        Workout band_lat_Pulldown_B_H = new Workout(36, "Band Lat Pulldown", 103, band_lat_Pulldown_B_H_Procedure);
-        Workout band_Sitting_Row_B_H = new Workout(37, "Band Sitting Row", 103, band_Sitting_Row_B_H_Procedure);
-        Workout band_Military_Press_B_H = new Workout(38, "Band Military Press", 103, band_Military_Press_B_H_Procedure);
-        Workout band_Shrugs_B_H = new Workout(39, "Band Shrugs", 103, band_Shrugs_B_H_Procedure);
+        Workout closeGrip_Pullup_B_H = new Workout(34, "Close-Grip Pull-Up", 103, closeGrip_Pullup_B_H_Procedure, null);
+        Workout wideGrip_Pullup_B_H = new Workout(35, "Wide-Grip Pull-Up", 103, wideGrip_Pullup_B_H_Procedure, null);
+        Workout band_lat_Pulldown_B_H = new Workout(36, "Band Lat Pulldown", 103, band_lat_Pulldown_B_H_Procedure, null);
+        Workout band_Sitting_Row_B_H = new Workout(37, "Band Sitting Row", 103, band_Sitting_Row_B_H_Procedure, null);
+        Workout band_Military_Press_B_H = new Workout(38, "Band Military Press", 103, band_Military_Press_B_H_Procedure, null);
+        Workout band_Shrugs_B_H = new Workout(39, "Band Shrugs", 103, band_Shrugs_B_H_Procedure, null);
 
         closeGrip_Pullup_B_H_Id = db.insert_Workout(closeGrip_Pullup_B_H, back_H_Id);
         wideGrip_Pullup_B_H_Id = db.insert_Workout(wideGrip_Pullup_B_H, back_H_Id);
@@ -366,10 +366,10 @@ public class Fill_Database {
         band_Shrugs_B_H_Id = db.insert_Workout(band_Shrugs_B_H, back_H_Id);
 
         // Add home chest workouts
-        Workout wide_Pushup_C_H = new Workout(40, "Wide Push-Up", 104, wide_Pushup_C_H_Procedure);
-        Workout diamond_Pushup_C_H = new Workout(41, "Diamond Push-Up", 104, diamond_Pushup_C_H_Procedure);
-        Workout decline_Pushup_C_H = new Workout(42, "Decline Push-Up", 104, decline_Pushup_C_H_Procedure);
-        Workout band_Bench_Press_C_H = new Workout(43, "Band Bench Press", 104, band_Bench_Press_C_H_Procedure);
+        Workout wide_Pushup_C_H = new Workout(40, "Wide Push-Up", 104, wide_Pushup_C_H_Procedure, null);
+        Workout diamond_Pushup_C_H = new Workout(41, "Diamond Push-Up", 104, diamond_Pushup_C_H_Procedure, null);
+        Workout decline_Pushup_C_H = new Workout(42, "Decline Push-Up", 104, decline_Pushup_C_H_Procedure, null);
+        Workout band_Bench_Press_C_H = new Workout(43, "Band Bench Press", 104, band_Bench_Press_C_H_Procedure, null);
 
         wide_Pushup_C_H_Id = db.insert_Workout(wide_Pushup_C_H, chest_H_Id);
         diamond_Pushup_C_H_Id = db.insert_Workout(diamond_Pushup_C_H, chest_H_Id);

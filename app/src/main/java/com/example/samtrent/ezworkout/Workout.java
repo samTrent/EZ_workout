@@ -12,6 +12,7 @@ public class Workout {
     private String name;
     private String procedure;
     private int isFavorite;
+    private String gifName;
 
     // constructors
     public Workout() {
@@ -27,12 +28,13 @@ public class Workout {
     }
 
     // set foreign key directly with an int
-    public Workout(int newId, String nwname, int nw_fk_MGroup, String nwprocedure) {
+    public Workout(int newId, String nwname, int nw_fk_MGroup, String nwprocedure, String gifName) {
         setId(newId);
         setName(nwname);
         setFk_muscleGroup(nw_fk_MGroup);
         setProcedure(nwprocedure);
         isFavorite = 0;
+        setGifName(gifName);
     }
 
     public int getId() {
@@ -79,5 +81,8 @@ public class Workout {
         isFavorite = f;
     }
 
+    public void setGifName(String gifName) { this.gifName = gifName; }
+
+    public String getGifName() { return  gifName; }
 
 }

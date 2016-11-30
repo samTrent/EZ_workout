@@ -19,7 +19,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 18;
+    private static final int DATABASE_VERSION = 21;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";
@@ -28,6 +28,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String KEY_W_PROCEDURE = "W_Procedure";
     private static final String KEY_W_IS_FAVORITE = "W_isFavorite";
     private static final String KEY_W_MUSCLE_GROUP = "W_Muscle_Group";
+    private static final String KEY_W_GIF_NAME = "W_Gif_Name";
     // Workouts table create
     private static final String CREATE_WORKOUTS_TABLE =
             "CREATE TABLE " + TABLE_WORKOUTS +
@@ -35,7 +36,8 @@ public class databaseHelper extends SQLiteOpenHelper {
                     KEY_W_NAME + " TEXT, " +
                     KEY_W_PROCEDURE + " TEXT, " +
                     KEY_W_MUSCLE_GROUP + " INTEGER, " +
-                    KEY_W_IS_FAVORITE + " INTEGER" + ")";
+                    KEY_W_IS_FAVORITE + " INTEGER, " +
+                    KEY_W_GIF_NAME + " TEXT" + ")";
 
     // Workouts_lists table and column names
     private static final String TABLE_WORKOUT_LIST = "Workout_Lists";
@@ -117,6 +119,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         values.put(KEY_W_PROCEDURE, workout.getProcedure());
         values.put(KEY_W_IS_FAVORITE, workout.getIsFavorite());
         values.put(KEY_W_MUSCLE_GROUP, workout_list_id);
+        values.put(KEY_W_GIF_NAME, workout.getGifName());
 
         // insert row
         long workout_id = db.insert(TABLE_WORKOUTS, null, values);
@@ -145,6 +148,7 @@ public class databaseHelper extends SQLiteOpenHelper {
         w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
         w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
         w.setIsFavorite(c.getInt(c.getColumnIndex(KEY_W_IS_FAVORITE)));
+        w.setGifName(c.getString(c.getColumnIndex(KEY_W_GIF_NAME)));
 
         return w;
     }
@@ -173,6 +177,7 @@ public class databaseHelper extends SQLiteOpenHelper {
                 w.setName((c.getString(c.getColumnIndex(KEY_W_NAME))));
                 w.setProcedure((c.getString(c.getColumnIndex(KEY_W_PROCEDURE))));
                 w.setFk_muscleGroup((c.getInt(c.getColumnIndex(KEY_W_MUSCLE_GROUP))));
+                w.setGifName(c.getString(c.getColumnIndex(KEY_W_GIF_NAME)));
 
                 // adding to tags list
                 workouts.add(w);
