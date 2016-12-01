@@ -1,13 +1,19 @@
 package com.example.samtrent.ezworkout;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -96,14 +102,38 @@ public class homeActivity extends AppCompatActivity {
      */
     public void add_My_Workout_Button(Workout w) {
         LinearLayout l_Fav = (LinearLayout) findViewById(R.id.favLayout);
+        LinearLayout n_Layout = new LinearLayout(homeActivity.this);
+        n_Layout.setOrientation(LinearLayout.VERTICAL);
+
+        Workout_List wl = db.query_Workout_List(w.getFk_muscleGroup());
+        String icon = wl.getIcon();
+        int id = this.getResources().getIdentifier(icon, "drawable", this.getPackageName());
 
         ImageButton ib = new ImageButton(homeActivity.this);
-        ib.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
+        ib.setLayoutParams(new LinearLayout.LayoutParams(250, 250));
+        ib.setScaleType(ImageView.ScaleType.CENTER);
+        ib.setAdjustViewBounds(true);
         ib.setOnClickListener(straightToWorkoutOnClickListener);
         ib.setTag(w.getId());
         ib.setId(w.getId());
+        ib.setImageResource(id);
 
-        l_Fav.addView(ib);
+        n_Layout.addView(ib);
+
+
+        RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        p.addRule(RelativeLayout.BELOW, w.getId());
+        p.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+
+        TextView tv = new TextView(homeActivity.this);
+        tv.setLayoutParams(p);
+        tv.setText(w.getName());
+
+
+        n_Layout.addView(tv);
+        l_Fav.addView(n_Layout);
     }
 
     /*
