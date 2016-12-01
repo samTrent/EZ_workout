@@ -80,11 +80,16 @@ public class workoutDisplayActivity extends AppCompatActivity {
 
         mGifImageView = (GifImageView) findViewById(R.id.giffy);
 
+        String gif = workout.getGifName();
+        int id = this.getResources().getIdentifier(gif, "drawable", this.getPackageName());
+
         // check to see if the gif file exsists...
         try {
 
             //if successful, create the gif object with the gif file as a param
-            gifAnim = new GifDrawable(getResources(), R.drawable.hammercurl);
+
+            //gifAnim = new GifDrawable(getResources(), R.drawable.hammercurl);
+            gifAnim = new GifDrawable(getResources(), id);
 
             gifAnim.setLoopCount(0); // loop the gif
             mGifImageView.setImageDrawable(gifAnim); // set the gif as an imageObject
@@ -118,6 +123,8 @@ public class workoutDisplayActivity extends AppCompatActivity {
             long new_My_Workout_Id = db.insert_Favorite_Workout(new_My_Workout, workout_id);
 
             db.update_Fav_Workout(1, workout_id);
+            Workout workout = db.query_Workout(workout_id);
+            workout.setIsFavorite(0);
 
             RatingBar rb = (RatingBar) findViewById(0);
             rb.setRating(1);
