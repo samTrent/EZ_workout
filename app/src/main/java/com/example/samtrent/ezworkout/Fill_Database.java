@@ -242,10 +242,10 @@ public class Fill_Database {
     public void fill_Workout_List_Table() {
 
         // Add home workout groups
-        Workout_List arms_H = new Workout_List(101, "Arms", 1001, "bicep_icon");
-        Workout_List legs_H = new Workout_List(102, "Legs", 1001, "leg_icon");
-        Workout_List back_H = new Workout_List(103, "Back", 1001, "back_icon");
-        Workout_List chest_H = new Workout_List(104, "Chest", 1001, "chest_icon");
+        Workout_List arms_H = new Workout_List(101, "Arms", 1001, "armsicon");
+        Workout_List legs_H = new Workout_List(102, "Legs", 1001, "legsicon");
+        Workout_List back_H = new Workout_List(103, "Back", 1001, "backicon");
+        Workout_List chest_H = new Workout_List(104, "Chest", 1001, "chesticon");
 
         arms_H_Id = db.insert_Workout_List(arms_H, home_id);
         legs_H_Id = db.insert_Workout_List(legs_H, home_id);
@@ -253,10 +253,10 @@ public class Fill_Database {
         chest_H_Id = db.insert_Workout_List(chest_H, home_id);
 
         // Add gym workout groups
-        Workout_List arms_G = new Workout_List(205, "Arms", 1002, "bicep_icon");
-        Workout_List legs_G = new Workout_List(206, "Legs", 1002, "leg_icon");
-        Workout_List back_G = new Workout_List(207, "Back", 1002, "back_icon");
-        Workout_List chest_G = new Workout_List(208, "Chest", 1002, "chest_icon");
+        Workout_List arms_G = new Workout_List(205, "Arms", 1002, "bicepicon");
+        Workout_List legs_G = new Workout_List(206, "Legs", 1002, "legicon");
+        Workout_List back_G = new Workout_List(207, "Back", 1002, "backicon");
+        Workout_List chest_G = new Workout_List(208, "Chest", 1002, "chesticon");
 
         arms_G_Id = db.insert_Workout_List(arms_G, gym_id);
         legs_G_Id = db.insert_Workout_List(legs_G, gym_id);
