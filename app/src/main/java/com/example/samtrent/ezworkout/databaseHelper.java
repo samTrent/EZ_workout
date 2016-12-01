@@ -19,7 +19,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 24;
+    private static final int DATABASE_VERSION = 30;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";
@@ -71,7 +71,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_FAV_WORKOUTS_TABLE =
             "CREATE TABLE " + TABLE_FAVORITE_WORKOUTS +
                     "(" + KEY_FW_ID + " INTEGER PRIMARY KEY," +
-                    KEY_FW_WORKOUT + " INTEGER" + ")";
+                    KEY_FW_WORKOUT + " INTEGER UNIQUE" + ")";
 
 
     public databaseHelper(Context context) {
@@ -411,7 +411,6 @@ public class databaseHelper extends SQLiteOpenHelper {
         }
         return my_workouts;
     }
-
 
 
     public void remove_Favorite_Workout(int w_Id) {

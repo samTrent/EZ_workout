@@ -1,12 +1,11 @@
 package com.example.samtrent.ezworkout;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -119,6 +118,8 @@ public class homeActivity extends AppCompatActivity {
 
         ImageButton ib = new ImageButton(homeActivity.this);
         ib.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
+        ib.setScaleType(ImageView.ScaleType.CENTER);
+        ib.setAdjustViewBounds(true);
         ib.setOnClickListener(trialOnClickListener);
         ib.setTag(wl.getId());
         ib.setId(wl.getId());
@@ -139,6 +140,8 @@ public class homeActivity extends AppCompatActivity {
 
         ImageButton ib = new ImageButton(homeActivity.this);
         ib.setLayoutParams(new LinearLayout.LayoutParams(300, 300));
+        ib.setScaleType(ImageView.ScaleType.CENTER);
+        ib.setAdjustViewBounds(true);
         ib.setOnClickListener(trialOnClickListener);
         ib.setTag(wl.getId());
         ib.setId(wl.getId());

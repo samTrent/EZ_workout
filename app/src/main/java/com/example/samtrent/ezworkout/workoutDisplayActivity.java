@@ -1,14 +1,10 @@
 package com.example.samtrent.ezworkout;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.util.Log;
 import android.widget.Toast;
@@ -62,6 +58,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
             add_To_Fav.setOnRatingBarChangeListener(addToFavListener);
 
             rBar.addView(add_To_Fav);
+            Log.e("addToFavListener", "Did it");
         }
         else if (workout.getIsFavorite() == 1){
             ConstraintLayout rBar = (ConstraintLayout) findViewById(R.id.activity_workout_display);
@@ -74,6 +71,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
             remove_From_Fav.setOnRatingBarChangeListener(removeFromFavListener);
 
             rBar.addView(remove_From_Fav);
+            Log.e("removeFromFavListener", "Did it");
         }
 
 
@@ -103,7 +101,6 @@ public class workoutDisplayActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
     }
 
 
@@ -124,7 +121,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
 
             db.update_Fav_Workout(1, workout_id);
             Workout workout = db.query_Workout(workout_id);
-            workout.setIsFavorite(0);
+            workout.setIsFavorite(1);
 
             RatingBar rb = (RatingBar) findViewById(0);
             rb.setRating(1);

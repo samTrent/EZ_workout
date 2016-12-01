@@ -570,8 +570,8 @@ public class Fill_Database {
         chest_H_Id = db.insert_Workout_List(chest_H, home_id);
 
         // Add gym workout groups
-        Workout_List arms_G = new Workout_List(205, "Arms", 1002, "bicepicon");
-        Workout_List legs_G = new Workout_List(206, "Legs", 1002, "legicon");
+        Workout_List arms_G = new Workout_List(205, "Arms", 1002, "armsicon");
+        Workout_List legs_G = new Workout_List(206, "Legs", 1002, "legsicon");
         Workout_List back_G = new Workout_List(207, "Back", 1002, "backicon");
         Workout_List chest_G = new Workout_List(208, "Chest", 1002, "chesticon");
 
