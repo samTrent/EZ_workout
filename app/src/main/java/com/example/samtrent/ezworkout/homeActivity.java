@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,20 @@ public class homeActivity extends AppCompatActivity {
         *   a button for each of them
          */
         List<Workout> my_fav_list = db.query_All_My_Workouts();
-        if (my_fav_list.size() != 0) {
+        Log.w("Home", "Fav List Size: " + my_fav_list.size());
+        if (my_fav_list.size() == 0) {
+            TextView tv = new TextView(homeActivity.this);
+            tv.setText("You currently have no favorite workouts");
+            //tv.setTextSize(20);
+            //tv.setGravity(Gravity.CENTER);
+            //tv.setTypeface(null, Typeface.BOLD);
+            //tv.setPadding(20, 20, 20, 20);
+            //tv.setBackgroundColor(3);
+
+            LinearLayout l_fav = (LinearLayout) findViewById(R.id.favLayout);
+            l_fav.addView(tv);
+        }
+        else if (my_fav_list.size() != 0) {
             for (Workout w : my_fav_list) {
                 add_My_Workout_Button(w);
             }
