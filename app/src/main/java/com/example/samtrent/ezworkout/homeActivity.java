@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -121,15 +122,9 @@ public class homeActivity extends AppCompatActivity {
         n_Layout.addView(ib);
 
 
-        RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        p.addRule(RelativeLayout.BELOW, w.getId());
-        p.addRule(RelativeLayout.CENTER_HORIZONTAL);
-        p.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-
         TextView tv = new TextView(homeActivity.this);
-        tv.setLayoutParams(p);
         tv.setText(w.getName());
+        tv.setGravity(Gravity.CENTER);
 
 
         n_Layout.addView(tv);
