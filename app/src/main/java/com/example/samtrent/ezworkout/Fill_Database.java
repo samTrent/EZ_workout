@@ -651,7 +651,7 @@ public class Fill_Database {
         // Add gym chest workouts
         Workout bench_Press_C_G = new Workout(20, "Bench Press", 208, bench_Press_C_G_Procedure, "benchpress");
         Workout dumbbell_Bench_Press_C_G = new Workout(21, "Dumbbell Bench Press", 208, dumbbell_Bench_Press_C_G_Procedure, null);
-        Workout incline_Dumbbell_Press_C_G = new Workout(22, "Incline Dumbbell Press", 208, incline_Dumbbell_Press_C_G_Procedure, "inclineddumbbellpress");
+        Workout incline_Dumbbell_Press_C_G = new Workout(22, "Incline Dumbbell Press", 208, incline_Dumbbell_Press_C_G_Procedure, "inlineddumbbellpress");
         Workout decline_Dumbbell_Press_C_G = new Workout(23, "Decline Dumbbell Press", 208, decline_Dumbbell_Press_C_G_Procedure, null);
 
         bench_Press_C_G_Id = db.insert_Workout(bench_Press_C_G, chest_G_Id);
@@ -717,7 +717,7 @@ public class Fill_Database {
         // Add gym ab workouts
         Workout crunches_Ab_G = new Workout(44, "Crunches", 209, crunches_Ab_Procedure, "crunches");
         Workout leg_Raises_Ab_G = new Workout(45, "Leg Raises", 209, leg_Raises_Ab_Procedure, "legraises");
-        Workout russian_Twist_Ab_G = new Workout(46, "Russian Twist", 209, russian_Twist_Ab_Procedure, "russiantwist");
+        Workout russian_Twist_Ab_G = new Workout(46, "Russian Twist", 209, russian_Twist_Ab_Procedure, "russaintwist");
         Workout broom_Stick_Twist_Ab_G = new Workout(47, "Broom Stick Twist", 209, broom_Stick_Twist_Ab_Procedure, "broomsticktwist");
 
         crunches_Ab_G_Id = db.insert_Workout(crunches_Ab_G, ab_G_Id);

@@ -1,6 +1,7 @@
 package com.example.samtrent.ezworkout;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -125,6 +126,10 @@ public class homeActivity extends AppCompatActivity {
         TextView tv = new TextView(homeActivity.this);
         tv.setText(w.getName());
         tv.setGravity(Gravity.CENTER);
+        tv.setHorizontallyScrolling(false);
+        tv.setTextSize(10);
+        tv.setTypeface(null, Typeface.BOLD);
+        //tv.setCompoundDrawablePadding(10);
 
 
         n_Layout.addView(tv);

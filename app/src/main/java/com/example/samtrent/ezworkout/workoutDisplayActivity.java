@@ -1,5 +1,6 @@
 package com.example.samtrent.ezworkout;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import android.support.constraint.ConstraintLayout;
@@ -40,6 +41,7 @@ public class workoutDisplayActivity extends AppCompatActivity {
 
         TextView description = (TextView) findViewById(R.id.instructionText);
         description.setText(workout.getProcedure());
+        description.setTypeface(null, Typeface.BOLD);
 
         /*
         *  check if the given workout is a
