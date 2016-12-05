@@ -613,10 +613,56 @@ public class Fill_Database {
             "you return to the starting position. As you squat, keep your head and chest up and push your knees out.";
 
     public long lunges_L_H_Id;
-    private String lunges_L_H_Procedure = "";
+    private String lunges_L_H_Procedure = "Materials needed:\n\n" +
+            "- (optional) Weighted dumbbells\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Stand with your torso upright holding two dumbbells in your hands by your sides. " +
+            "This will be your starting position.\n\n" +
+
+            "2. Step forward with your right leg around 2 feet or so from the foot being left " +
+            "stationary behind and lower your upper body down, while keeping the torso upright " +
+            " and maintaining balance. Inhale as you go down. Note: As in the other exercises, do " +
+            "not allow your knee to go forward beyond your toes as you come down, as this will put " +
+            "undue stress on the knee joint. Make sure that you keep your front shin perpendicular " +
+            "to the ground.\n\n" +
+
+            "3. Using mainly the heel of your foot, push up and go back to the starting position as " +
+            "you exhale.\n\n" +
+
+            "4. Repeat the movement for the recommended amount of repetitions and then perform with " +
+            "the left leg.\n\n" +
+
+            "Caution: This is a movement that requires a great deal of balance so if you suffer from" +
+            "balance problems you may wish to either avoid it or just use your own bodyweight while" +
+            "holding on to a fixed object. Definitely never perform with a barbell on your back if " +
+            "you suffer from balance issues.\n\n" +
+
+            "Variations: There are several ways to perform the exercise. One way is to alternate each leg. " +
+            "For instance do one repetition with the right, then the left, then the right and so on.";
+
 
     public long stair_Calf_Raises_L_H_Id;
-    private String stair_Calf_Raises_L_H_Procedure = "";
+    private String stair_Calf_Raises_L_H_Procedure = "Materials needed:\n\n" +
+            "- (optional) Elevated surface" +
+            "- (optional) Weighted dumbbells\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Stand with your torso upright. Place the ball of the foot on a sturdy and stable " +
+            "elevated surface (that is around 2-3 inches or taller). This will be your starting " +
+            "position.\n\n" +
+
+            "2. With the toes pointing either straight (to hit all parts equally), inwards (for " +
+            "emphasis on the outer head) or outwards (for emphasis on the inner head), raise " +
+            "he heels off the floor as you exhale by contracting the calves. Hold the top contraction " +
+            "for a second.\n\n" +
+
+            "3. As you inhale, go back to the starting position by slowly lowering the heels.\n\n" +
+
+            "4. Repeat for the recommended amount of times.\n\n" +
+
+            "Note: If you choose to use dumbbells, you may need to use wrist wraps to avoid having " +
+            "them slip out of your hands.\n\n";
 
     public long jump_Rope_L_H_Id;
     private String jump_Rope_L_H_Procedure = "Materials needed:\n\n" +
@@ -639,27 +685,103 @@ public class Fill_Database {
     private String wideGrip_Pullup_B_H_Procedure = "";
 
     public long band_lat_Pulldown_B_H_Id;
-    private String band_lat_Pulldown_B_H_Procedure = "";
+    private String band_lat_Pulldown_B_H_Procedure = "Materials needed:\n\n" +
+            "- none\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Lie on your stomach with your legs and arms fully extended. \n\n" +
+
+            "2. Raise your upper body, bend your arms and bring your shoulder blades together.\n\n" +
+
+            "3. Lower your upper body and extend your arms.\n\n" +
+
+            "4. Repeat the movement until the set is complete.\n\n" +
+
+
+            "TIP: When doing the cobra lat pulldown keep your head inline with your spine and keep" +
+            "your abs tight. Breathe out as you lift your torso and, as you bend your arms, pull " +
+            "your shoulders away from your ears and squeeze your shoulder blades.";
+
 
     public long band_Sitting_Row_B_H_Id;
     private String band_Sitting_Row_B_H_Procedure = "";
 
     public long band_Military_Press_B_H_Id;
-    private String band_Military_Press_B_H_Procedure = "";
+    private String band_Military_Press_B_H_Procedure = "Materials needed:\n\n" +
+            "- Flat surface to put legs on\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Assume a pushup position on the floor. Your arms should be straight and your hands " +
+            " should be shoulder-width apart.\n\n" +
+
+            "2. Now lift up your hips so that your body forms an upside down V. Your legs and arms " +
+            " should stay as straight as possible.\n\n" +
+
+            "3. Bend your elbows and lower your upper body until the top of your head nearly touches " +
+            "the floor.\n\n" +
+
+            "4. Pause, and then push yourself back up until your arms are straight.";
 
     public long band_Shrugs_B_H_Id;
-    private String band_Shrugs_B_H_Procedure = "";
+    private String band_Shrugs_B_H_Procedure = "Materials needed:\n\n" +
+            "- (optional) Weights in hands\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Stand up and extend your arms straight out by the sides. The arms should be parallel " +
+            "to the floor and perpendicular (90-degree angle) to your torso. This will be your " +
+            "starting position.\n\n" +
+
+            "2. Slowly start to make circles of about 1 foot in diameter with each outstretched arm. " +
+            "Breathe normally as you perform the movement.\n\n" +
+
+            "3. Continue the circular motion of the outstretched arms for about ten seconds. Then " +
+            "reverse the movement, going the opposite direction.\n\n" +
+
+            "Tip: Ten second movements equal one set and each circle equals one repetition.\n\n" +
+
+            "Variations: As you get stronger you can use some light resistance.";
+
 
     // Home Chest
     public long wide_Pushup_C_H_Id;
-    private String wide_Pushup_C_H_Procedure = "";
+    private String wide_Pushup_C_H_Procedure = "Materials needed:\n\n" +
+            "- dry rag or towl\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Lie on the floor face down and place your hands about 36 inches apart while holding " +
+            "your torso up at arms length. Have your rag or towl ready under one of your hands.\n\n" +
+
+            "2. Next, lower yourself downward, as you lower yourself the hand that has the rag or towl " +
+            "away from you diagonally until your chest almost touches the floor as youinhale.\n\n" +
+
+            "3. Now breathe out and press your upper body back up to the starting position while " +
+            "squeezing your chest and retracting your hand back to its starting position.\n\n" +
+
+            "4. After a brief pause at the top contracted position, you can begin to lower yourself " +
+            "downward again for as many repetitions as needed.\n\n";
+
+
 
     public long diamond_Pushup_C_H_Id;
-    private String diamond_Pushup_C_H_Procedure = "";
+    private String diamond_Pushup_C_H_Procedure = "Materials needed:\n\n" +
+            "- (optional) Flat surface for elevation\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Assume a prone position with your body straight, supported by your extended arms " +
+            "and your toes. Your hands should be outside of shoulder width but staggered, with one " +
+            "being higher than the other. This will be your starting position.\n\n" +
+
+            "2. Initiate the movement by flexing the elbows, lowering your torso to the ground. " +
+            "Do not allow your hips to rise or to sag.\n\n" +
+
+            "3. Pause at the bottom of the motion, and then extend at the elbows to return to the " +
+            " starting position.\n\n" +
+
+            "4. At the completion of this set, reverse your hand position for the next round.\n\n";
+
+
 
     public long decline_Pushup_C_H_Id;
     private String decline_Pushup_C_H_Procedure = "Materials needed:\n\n" +
-            "- Flat bench\n\n\n" +
+            "- Flat surface for elevation\n\n\n" +
             "                                   Instructions\n\n" +
             "1. Lie on the floor face down and place your hands about 36 inches apart while " +
             "holding your torso up at arms length. Move your feet up to a box or bench. This " +
@@ -675,7 +797,27 @@ public class Fill_Database {
             "yourself downward again for as many repetitions as needed.";
 
     public long band_Bench_Press_C_H_Id;
-    private String band_Bench_Press_C_H_Procedure = "";
+    private String band_Bench_Press_C_H_Procedure = "Materials needed:\n\n" +
+            "- none\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Lie on the floor face down and place your hands about 36 inches apart while " +
+            "holding your torso up at arms length.\n\n" +
+
+            "2. Next, lower yourself downward until your chest almost touches the floor as you " +
+            "inhale.\n\n" +
+
+            "3. Now breathe out and press your upper body back up to the starting position while " +
+            "squeezing your chest.\n\n" +
+
+            "4. After a brief pause at the top contracted position, you can begin to lower yourself " +
+            "downward again for as many repetitions as needed.\n\n" +
+
+            "Variations: If you are new at this exercise and do not have the strength to perform it, " +
+            "you can either bend your legs at the knees to take off resistance or perform the exercise " +
+            "against the wall instead of the floor.\n" +
+            "For the most advanced lifters, you can place your feet at a high surface such as a " +
+            "bench in order to increase the resistance and to target the upper chest more.";
 
     // Ab workouts
     public long crunches_Ab_G_Id;
@@ -902,11 +1044,11 @@ public class Fill_Database {
         band_Forearm_Curl_A_H_Id = db.insert_Workout(band_Forearm_Curl_A_H, arms_H_Id);
         band_Tricep_Pulldown_A_H_Id = db.insert_Workout(band_Tricep_Pulldown_A_H, arms_H_Id);
 
-        // Add home leg workouts
-        Workout air_Squats_L_H = new Workout(30, "Air Squats/Band Squats", 102, air_Squats_L_H_Procedure, null);
-        Workout lunges_L_H = new Workout(31, "Lunges", 102, lunges_L_H_Procedure, null);
-        Workout stair_Calf_Raises_L_H = new Workout(32, "Stair Calf Raises", 102, stair_Calf_Raises_L_H_Procedure, null);
-        Workout jump_Rope_L_H = new Workout(33, "Jump Rope", 102, "Coming Soon", null);
+        // Add home leg workouts COMPLETE
+        Workout air_Squats_L_H = new Workout(30, "Air Squats/Band Squats", 102, air_Squats_L_H_Procedure, "airquat");
+        Workout lunges_L_H = new Workout(31, "Lunges", 102, lunges_L_H_Procedure, "lunge");
+        Workout stair_Calf_Raises_L_H = new Workout(32, "Stair Calf Raises", 102, stair_Calf_Raises_L_H_Procedure, "calfrasehome");
+        Workout jump_Rope_L_H = new Workout(33, "Jump Rope", 102, jump_Rope_L_H_Procedure, "jumpropehome");
 
         air_Squats_L_H_Id = db.insert_Workout(air_Squats_L_H, legs_H_Id);
         lunges_L_H_Id = db.insert_Workout(lunges_L_H, legs_H_Id);
@@ -916,10 +1058,10 @@ public class Fill_Database {
         // Add home back workouts
         Workout closeGrip_Pullup_B_H = new Workout(34, "Close-Grip Pull-Up", 103, closeGrip_Pullup_B_H_Procedure, null);
         Workout wideGrip_Pullup_B_H = new Workout(35, "Wide-Grip Pull-Up", 103, wideGrip_Pullup_B_H_Procedure, null);
-        Workout band_lat_Pulldown_B_H = new Workout(36, "Band Lat Pulldown", 103, band_lat_Pulldown_B_H_Procedure, null);
+        Workout band_lat_Pulldown_B_H = new Workout(36, "Cobra Lat Pulldown", 103, band_lat_Pulldown_B_H_Procedure, "latpullhome");
         Workout band_Sitting_Row_B_H = new Workout(37, "Band Sitting Row", 103, band_Sitting_Row_B_H_Procedure, null);
-        Workout band_Military_Press_B_H = new Workout(38, "Band Military Press", 103, band_Military_Press_B_H_Procedure, null);
-        Workout band_Shrugs_B_H = new Workout(39, "Band Shrugs", 103, band_Shrugs_B_H_Procedure, null);
+        Workout band_Military_Press_B_H = new Workout(38, "Band Military Press", 103, band_Military_Press_B_H_Procedure, "pyramidpushuphome");
+        Workout band_Shrugs_B_H = new Workout(39, "Arm Circles", 103, band_Shrugs_B_H_Procedure, "fluttershome");
 
         closeGrip_Pullup_B_H_Id = db.insert_Workout(closeGrip_Pullup_B_H, back_H_Id);
         wideGrip_Pullup_B_H_Id = db.insert_Workout(wideGrip_Pullup_B_H, back_H_Id);
@@ -928,11 +1070,11 @@ public class Fill_Database {
         band_Military_Press_B_H_Id = db.insert_Workout(band_Military_Press_B_H, back_H_Id);
         band_Shrugs_B_H_Id = db.insert_Workout(band_Shrugs_B_H, back_H_Id);
 
-        // Add home chest workouts
-        Workout wide_Pushup_C_H = new Workout(40, "Wide Push-Up", 104, wide_Pushup_C_H_Procedure, null);
-        Workout diamond_Pushup_C_H = new Workout(41, "Diamond Push-Up", 104, diamond_Pushup_C_H_Procedure, null);
-        Workout decline_Pushup_C_H = new Workout(42, "Decline Push-Up", 104, decline_Pushup_C_H_Procedure, null);
-        Workout band_Bench_Press_C_H = new Workout(43, "Band Bench Press", 104, band_Bench_Press_C_H_Procedure, null);
+        // Add home chest workouts COMPLETE
+        Workout wide_Pushup_C_H = new Workout(40, "Wide Push-Up", 104, wide_Pushup_C_H_Procedure, "widepushuphome");
+        Workout diamond_Pushup_C_H = new Workout(41, "Staggered Push-Up", 104, diamond_Pushup_C_H_Procedure, "staggardpushuphome");
+        Workout decline_Pushup_C_H = new Workout(42, "Decline Push-Up", 104, decline_Pushup_C_H_Procedure, "declinedpushuphome");
+        Workout band_Bench_Press_C_H = new Workout(43, "Push up", 104, band_Bench_Press_C_H_Procedure, "pushuphome");
 
         wide_Pushup_C_H_Id = db.insert_Workout(wide_Pushup_C_H, chest_H_Id);
         diamond_Pushup_C_H_Id = db.insert_Workout(diamond_Pushup_C_H, chest_H_Id);
@@ -940,7 +1082,7 @@ public class Fill_Database {
         band_Bench_Press_C_H_Id = db.insert_Workout(band_Bench_Press_C_H, chest_H_Id);
 
 
-        // Add gym ab workouts
+        // Add gym ab workouts COMPLETE
         Workout crunches_Ab_G = new Workout(44, "Crunches", 209, crunches_Ab_Procedure, "crunches");
         Workout leg_Raises_Ab_G = new Workout(45, "Leg Raises", 209, leg_Raises_Ab_Procedure, "legraises");
         Workout russian_Twist_Ab_G = new Workout(46, "Russian Twist", 209, russian_Twist_Ab_Procedure, "russaintwist");
@@ -952,11 +1094,11 @@ public class Fill_Database {
         broom_Stick_Twist_Ab_G_Id = db.insert_Workout(broom_Stick_Twist_Ab_G, ab_G_Id);
 
 
-        // Add home ab workouts
-        Workout crunches_Ab_H = new Workout(48, "Crunches", 105, crunches_Ab_Procedure, "crunches");
-        Workout leg_Raises_Ab_H = new Workout(49, "Leg Raises", 105, leg_Raises_Ab_Procedure, "legraises");
-        Workout russian_Twist_Ab_H = new Workout(50, "Russian Twist", 105, russian_Twist_Ab_Procedure, "russiantwist");
-        Workout broom_Stick_Twist_Ab_H = new Workout(51, "Broom Stick Twist", 105, broom_Stick_Twist_Ab_Procedure, "broomsticktwist");
+        // Add home ab workouts COMPLETE
+        Workout crunches_Ab_H = new Workout(48, "Crunches", 105, crunches_Ab_Procedure, "situpshome");
+        Workout leg_Raises_Ab_H = new Workout(49, "Leg Raises", 105, leg_Raises_Ab_Procedure, "legraisehome");
+        Workout russian_Twist_Ab_H = new Workout(50, "Russian Twist", 105, russian_Twist_Ab_Procedure, "russianhome");
+        Workout broom_Stick_Twist_Ab_H = new Workout(51, "Broom Stick Twist", 105, broom_Stick_Twist_Ab_Procedure, "broomhome");
 
         crunches_Ab_H_Id = db.insert_Workout(crunches_Ab_H, ab_H_Id);
         leg_Raises_Ab_H_Id = db.insert_Workout(leg_Raises_Ab_H, ab_H_Id);
