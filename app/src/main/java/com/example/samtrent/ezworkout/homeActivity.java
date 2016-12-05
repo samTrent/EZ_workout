@@ -22,6 +22,7 @@ import java.util.List;
 
 public class homeActivity extends AppCompatActivity {
 
+    TextView tv;
     databaseHelper db;
     public ListView mainListView;
 
@@ -49,18 +50,23 @@ public class homeActivity extends AppCompatActivity {
         List<Workout> my_fav_list = db.query_All_My_Workouts();
         Log.w("Home", "Fav List Size: " + my_fav_list.size());
         if (my_fav_list.size() == 0) {
-            TextView tv = new TextView(homeActivity.this);
-            tv.setText("You currently have no favorite workouts");
+
+            tv = (TextView) findViewById(R.id.textView3);
+            tv.setText("You currently have no favorite workouts!");
             //tv.setTextSize(20);
             //tv.setGravity(Gravity.CENTER);
             //tv.setTypeface(null, Typeface.BOLD);
             //tv.setPadding(20, 20, 20, 20);
             //tv.setBackgroundColor(3);
 
-            LinearLayout l_fav = (LinearLayout) findViewById(R.id.favLayout);
-            l_fav.addView(tv);
+           // LinearLayout l_fav = (LinearLayout) findViewById(R.id.favLayout);
+            //l_fav.addView(tv);
         }
         else if (my_fav_list.size() != 0) {
+            tv = (TextView) findViewById(R.id.textView3);
+            tv.setText("");
+
+            Log.d("fish", "onCreate: fishy");
             for (Workout w : my_fav_list) {
                 add_My_Workout_Button(w);
             }
@@ -93,6 +99,22 @@ public class homeActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
+        List<Workout> my_fav_list = db.query_All_My_Workouts();
+        if (my_fav_list.size() == 0) {
+
+            tv = (TextView) findViewById(R.id.textView3);
+            tv.setText("You currently have no favorite workouts");
+
+        }
+        else if (my_fav_list.size() != 0) {
+            tv = (TextView) findViewById(R.id.textView3);
+            tv.setText("");
+
+
+            for (Workout w : my_fav_list) {
+                add_My_Workout_Button(w);
+            }
+        }
         LinearLayout l_Fav = (LinearLayout) findViewById(R.id.favLayout);
         l_Fav.removeAllViews();
 
@@ -101,7 +123,7 @@ public class homeActivity extends AppCompatActivity {
         *   every favorite workout and add
         *   a button for each of them
          */
-        List<Workout> my_fav_list = db.query_All_My_Workouts();
+       // List<Workout> my_fav_list = db.query_All_My_Workouts();
         if (my_fav_list.size() != 0) {
             for (Workout w : my_fav_list) {
                 add_My_Workout_Button(w);
@@ -139,6 +161,7 @@ public class homeActivity extends AppCompatActivity {
 
         TextView tv = new TextView(homeActivity.this);
         tv.setText(w.getName());
+       // tv.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
         tv.setGravity(Gravity.CENTER);
         tv.setHorizontallyScrolling(false);
         tv.setTextSize(10);

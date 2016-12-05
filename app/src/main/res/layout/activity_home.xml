@@ -9,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#cccdfc"
     tools:context="com.example.samtrent.ezworkout.homeActivity">
 
     <TextView
@@ -32,6 +33,7 @@
         android:layout_height="100dp"
         android:id="@+id/horizontalScrollView"
         android:layout_alignParentBottom="true"
+        android:background="#bccecfcf"
         android:layout_alignParentStart="true">
 
 
@@ -55,6 +57,7 @@
         android:layout_height="100dp"
         android:id="@+id/horizontalScrollViewTop"
         android:layout_above="@+id/textView4"
+        android:background="#bccecfcf"
         android:layout_alignParentStart="true">
 
 
@@ -108,6 +111,7 @@
         android:id="@+id/horizontalFavoritScrollView"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/textView2"
+        android:background="#bccecfcf"
         android:layout_alignParentStart="true">
 
     <LinearLayout
@@ -120,10 +124,19 @@
         android:layout_marginBottom="29dp">
 
 
-
-
     </LinearLayout>
     </HorizontalScrollView>
+
+    <TextView
+        android:text="You currently have no favorite workouts!"
+        android:layout_width="400dp"
+        android:layout_height="20dp"
+        android:id="@+id/textView3"
+        android:layout_weight="1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_marginTop="11dp"
+        android:layout_alignTop="@+id/horizontalFavoritScrollView"
+        android:layout_alignStart="@+id/textView2" />
 
 
 </RelativeLayout>

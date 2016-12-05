@@ -542,19 +542,113 @@ public class Fill_Database {
     // Ab workouts
     public long crunches_Ab_G_Id;
     public long crunches_Ab_H_Id;
-    private String crunches_Ab_Procedure = "";
+    private String crunches_Ab_Procedure = "Materials needed:\n\n" +
+            "- none\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Lie flat on your back with your feet flat on the ground, or resting on a bench with " +
+            "your knees bent at a 90 degree angle. If you are resting your feet on a bench, " +
+            "place them three to four inches apart and point your toes inward so they touch.\n\n" +
+
+            "2. Now place your hands lightly on either side of your head keeping your elbows in. " +
+            "Tip: Don't lock your fingers behind your head.\n\n" +
+
+            "3. While pushing the small of your back down in the floor to better isolate you " +
+            "abdominal muscles, begin to roll your shoulders off the floor.\n\n" +
+
+            "4. Continue to push down as hard as you can with your lower back as you contract " +
+            "your abdominals and exhale. Your shoulders should come up off the floor only " +
+            "about four inches, and your lower back should remain on the floor. At the top of " +
+            "the movement, contract your abdominals hard and keep the contraction for a second. " +
+            "Tip: Focus on slow, controlled movement - don't cheat yourself by using momentum.\n\n" +
+
+            "5. After the one second contraction, begin to come down slowly again to the starting " +
+            "position as you inhale.\n\n" +
+
+            "6. Repeat for the recommended amount of repetitions.\n\n" +
+
+            "Variations: There are many variations for the crunch. You can perform the exercise with " +
+            "weights, or on top of an exercise ball or on a decline bench.";
 
     public long leg_Raises_Ab_G_Id;
     public long leg_Raises_Ab_H_Id;
-    private String leg_Raises_Ab_Procedure = "";
+    private String leg_Raises_Ab_Procedure = "Materials needed:\n\n" +
+            "- none\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Lie with your back flat on the floor and your legs extended in front of you off the " +
+            "end. \n\n" +
+
+            "2. Place your hands either under your glutes with your palms down. This will be " +
+            "your starting position.\n\n" +
+
+            "3. As you keep your legs extended, straight as possible with your knees slightly " +
+            "bent but locked raise your legs until they make a 90-degree angle with the floor. " +
+            "Exhale as you perform this portion of the movement and hold the contraction at " +
+            "the top for a second.\n\n" +
+
+            "4. Now, as you inhale, slowly lower your legs back down to the starting position.\n\n" +
+
+            "Variations: You can also perform this exercise on a flat bench. You can also add weight " +
+            "by holding a dumbbell in between your feet as you get more advanced.";
 
     public long russian_Twist_Ab_G_Id;
     public long russian_Twist_Ab_H_Id;
-    private String russian_Twist_Ab_Procedure = "";
+    private String russian_Twist_Ab_Procedure = "Materials needed:\n\n" +
+            "- none\n" +
+            "- (optional) Weighted Object in your hands\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Lie down on the floor placing your feet either under something that will not move " +
+            "or by having a partner hold them. Your legs should be bent at the knees.\n\n" +
+
+            "2. Elevate your upper body so that it creates an imaginary V-shape with your thighs. " +
+            "Your arms should be fully extended in front of you perpendicular to your torso " +
+            "and with the hands clasped. This is the starting position.\n\n" +
+
+            "3. Twist your torso to the right side until your arms are parallel with the floor while " +
+            "breathing out.\n\n" +
+
+            "4. Hold the contraction for a second and move back to the starting position while " +
+            "breathing out. Now move to the opposite side performing the same techniques " +
+            "you applied to the right side.\n\n" +
+
+            "5. Repeat for the recommended amount of repetitions. \n\n" +
+
+            "Variation: As you get more advanced, you can hold a weight with both arms for " +
+            "resistance.";
+
+
 
     public long broom_Stick_Twist_Ab_G_Id;
     public long broom_Stick_Twist_Ab_H_Id;
-    private String broom_Stick_Twist_Ab_Procedure = "";
+    private String broom_Stick_Twist_Ab_Procedure = "Materials needed:\n\n" +
+            "- Regular light weight pole\n" +
+            "- (optional) Weighted barbell for resistance\n" +
+            "- (optional) Flat Bench\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Start out by standing or sitting at the end of a flat bench with a pole/barbell " +
+            "placed on top of your thighs. Your feet should be shoulder width apart from each " +
+            "other.\n\n" +
+
+            "2. Grip the bar with your palms facing down and make sure your hands are wider " +
+            "than shoulder width apart from each other. Begin to lift the pole/barbell up over " +
+            "your head until your arms are fully extended.\n\n" +
+
+            "3. Now lower the barbell behind your head until it is resting along the base of your " +
+            "neck. This is the starting position.\n\n" +
+
+            "4. While keeping your feet and head stationary, move your waist from side to side " +
+            "so that your oblique muscles feel the contraction. Only move from side to side as " +
+            "far as your waist will allow you to go. Stretching or moving too far can cause an " +
+            "injury to occur.\n\n" +
+            "Tip: Use a slow and controlled motion.\n\n" +
+
+            "5. Remember to breathe out while twisting your body to the side and in when " +
+            "moving back to the starting position.\n\n" +
+
+            "6. Repeat for the recommended amount of repetitions.";
+
+
 
 
     public Fill_Database(databaseHelper db) {
@@ -601,7 +695,7 @@ public class Fill_Database {
 
     public void fill_Workout_Table() {
 
-        // Add gym arm workouts
+        // Add gym arm workouts COMPLTETED
         Workout basic_Curl_A_G = new Workout(1, "Consentration Curl", 205, basic_Curl_A_G_Procedure, "bicepcurl");
         Workout hammer_Curl_A_G = new Workout(2, "Hammer Curl", 205, hammer_Curl_A_G_Procedure, "hammercurl");
         Workout dips_A_G = new Workout(3, "Dips", 205, dips_A_G_Procedure, "dips");
@@ -651,7 +745,7 @@ public class Fill_Database {
         // Add gym chest workouts
         Workout bench_Press_C_G = new Workout(20, "Bench Press", 208, bench_Press_C_G_Procedure, "benchpress");
         Workout dumbbell_Bench_Press_C_G = new Workout(21, "Dumbbell Bench Press", 208, dumbbell_Bench_Press_C_G_Procedure, null);
-        Workout incline_Dumbbell_Press_C_G = new Workout(22, "Incline Dumbbell Press", 208, incline_Dumbbell_Press_C_G_Procedure, "inlineddumbbellpress");
+        Workout incline_Dumbbell_Press_C_G = new Workout(22, "Incline Dumbbell Press", 208, incline_Dumbbell_Press_C_G_Procedure, "inclineddumbbellpress");
         Workout decline_Dumbbell_Press_C_G = new Workout(23, "Decline Dumbbell Press", 208, decline_Dumbbell_Press_C_G_Procedure, null);
 
         bench_Press_C_G_Id = db.insert_Workout(bench_Press_C_G, chest_G_Id);
