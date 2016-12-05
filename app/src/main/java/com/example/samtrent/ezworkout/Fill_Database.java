@@ -209,10 +209,57 @@ public class Fill_Database {
             "them slip out of your hands.";
 
     public long leg_Curl_L_G_Id;
-    private String leg_Curl_L_G_Procedure = "";
+    private String leg_Curl_L_G_Procedure = "Materials needed:\n\n" +
+            "- Leg Curl Machine\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Adjust the machine lever to fit your height and sit on the machine with your back " +
+            "against the back support pad.\n\n" +
+
+            "2. Place the back of lower leg on top of padded lever (just a few inches under the " +
+            "calves) and secure the lap pad against your thighs, just above the knees. Then grasp " +
+            "the side handles on the machine as you point your toes straight (or you can also use " +
+            "any of the other two stances) and ensure that the legs are fully straight right in " +
+            "front of you. This will be your starting position.\n\n" +
+
+            "3. As you exhale, pull the machine lever as far as possible to the back of your thighs " +
+            "by flexing at the knees. Keep your torso stationary at all times. Hold the contracted " +
+            "position for a second.\n\n" +
+
+            "4. Slowly return to the starting position as you breathe in.\n\n" +
+
+            "5. Repeat for the recommended amount of repetitions.\n\n" +
+
+            "Caution: Do not ever use so much weight on the exercise that you start using swinging " +
+            "and jerking as you can risk both lower back injury and also a hamstring tear.\n\n" +
+
+            "Variations: Since you have three foot positions you have in reality three exercises.";
 
     public long leg_Extension_L_G_Id;
-    private String leg_Extension_L_G_Procedure = "";
+    private String leg_Extension_L_G_Procedure = "Materials needed:\n\n" +
+            "- Leg Extension Machine\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. For this exercise you will need to use a leg extension machine. First choose your " +
+            "weight and sit on the machine with your legs under the pad (feet pointed forward) and " +
+            "the hands holding the side bars. This will be your starting position. Tip: You will " +
+            "need to adjust the pad so that it falls on top of your lower leg (just above your " +
+            "feet). Also, make sure that your legs form a 90-degree angle between the lower and " +
+            "upper leg. If the angle is less than 90-degrees then that means the knee is over the " +
+            "toes which in turn creates undue stress at the knee joint. If the machine is designed " +
+            "that way, either look for another machine or just make sure that when you start " +
+            "executing the exercise you stop going down once you hit the 90-degree angle.\n\n" +
+
+            "2. Using your quadriceps, extend your legs to the maximum as you exhale. Ensure that " +
+            "the rest of the body remains stationary on the seat. Pause a second on the " +
+            "contracted position.\n\n" +
+
+            "3. Slowly lower the weight back to the original position as you inhale, ensuring that " +
+            "you do not go past the 90-degree angle limit.\n\n" +
+
+            "4. Repeat for the recommended amount of times.\n\n" +
+
+            "Variations: As mentioned at in the foot positioning section, you can use various foot " +
+            "positions in order to maximize stimulation of certain thigh areas. Also, you can " +
+            "perform the movement unilaterally (one leg at a time).";
 
 
     // Gym Back
@@ -444,7 +491,36 @@ public class Fill_Database {
             "it seems to be hard on my shoulders.";
 
     public long decline_Dumbbell_Press_C_G_Id;
-    private String decline_Dumbbell_Press_C_G_Procedure = "";
+    private String decline_Dumbbell_Press_C_G_Procedure = "Materials needed:\n\n" +
+            "- Dumbbells\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Secure your legs at the end of the decline bench and lie down with a dumbbell on " +
+            "each hand on top of your thighs. The palms of your hand will be facing each other.\n\n" +
+
+            "2. Once you are laying down, move the dumbbells in front of you at shoulder width.\n\n" +
+
+            "3. Once at shoulder width, rotate your wrists forward so that the palms of your hands " +
+            "are facing away from you. This will be your starting position.\n\n" +
+
+            "4. Bring down the weights slowly to your side as you breathe out. Keep full control " +
+            "of the dumbbells at all times. Tip: Throughout the motion, the forearms should always " +
+            "be perpendicular to the floor.\n\n" +
+
+            "5. As you breathe out, push the dumbbells up using your pectoral muscles. Lock your " +
+            "arms in the contracted position, squeeze your chest, hold for a second and then start " +
+            "coming down slowly. Tip: It should take at least twice as long to go down than to " +
+            "come up.\n\n" +
+
+            "6. Repeat the movement for the prescribed amount of repetitions of your training program.\n\n" +
+
+            "Caution: When you are done, do not drop the dumbbells next to you as this is " +
+            "dangerous to your rotator cuff in your shoulders and others working out around you.\n\n" +
+
+            "If using really heavy weights, it is best if a partner gives them to you as you lay down.\n\n" +
+
+            "Variations: You can use an exercise band or a barbell to perform this exercise.\n\n" +
+
+            "Similar to the Dumbbell Bench Press but on a decline bench. This works more of the lower chest.";
 
 
     // Home Arms
