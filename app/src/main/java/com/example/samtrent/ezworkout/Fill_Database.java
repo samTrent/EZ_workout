@@ -159,7 +159,9 @@ public class Fill_Database {
             "2. Begin the movement by flexing your knees and hips, sitting back with your hips.\n\n" +
 
             "3. Continue down to full depth if you are able,and quickly reverse the motion until " +
-            "you return to the starting position. As you squat, keep your head and chest up and push your knees out.";
+            "you return to the starting position. As you squat, keep your head and chest up and push your knees out.\n\n" +
+
+            "Variations: You can use dumbbells as you squat to increase the resistance.";
 
     public long leg_Press_L_G_Id;
     private String leg_Press_L_G_Procedure = "Materials needed:\n\n" +
@@ -212,8 +214,6 @@ public class Fill_Database {
     public long leg_Extension_L_G_Id;
     private String leg_Extension_L_G_Procedure = "";
 
-    public long dead_Lift_L_G_Id;
-    private String dead_Lift_L_G_Procedure = "";
 
     // Gym Back
     public long lat_Pulldown_B_G_Id;
@@ -249,8 +249,6 @@ public class Fill_Database {
             "Variations: The behind-the-neck variation is not recommended as it can be hard on the " +
             "rotator cuff due to the hyperextension created by bringing the bar behind the neck.";
 
-    public long single_Arm_Dumbbell_Row_B_G_Id;
-    private String single_Arm_Dumbbell_Row_B_G_Procedure = "";
 
     public long side_Lateral_Raises_B_G_Id;
     private String side_Lateral_Raises_B_G_Procedure = "Materials needed:\n\n" +
@@ -408,8 +406,6 @@ public class Fill_Database {
             "Don't bounce the weight off your chest. You should be in full control of the barbell " +
             "at all times.";
 
-    public long dumbbell_Bench_Press_C_G_Id;
-    private String dumbbell_Bench_Press_C_G_Procedure = "";
 
     public long incline_Dumbbell_Press_C_G_Id;
     private String incline_Dumbbell_Press_C_G_Procedure = "Materials needed:\n\n" +
