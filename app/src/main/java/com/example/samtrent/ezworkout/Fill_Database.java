@@ -525,16 +525,74 @@ public class Fill_Database {
 
     // Home Arms
     public long band_Basic_Curl_A_H_Id;
-    private String band_Basic_Curl_A_H_Procedure = "";
+    private String band_Basic_Curl_A_H_Procedure = "Materials needed:\n\n" +
+            "- Resistance band\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Lay a resistance band on the floor, and stand with your feet hip-width apart, " +
+            "placing the balls of your feet on top of the band. The length of tubing should be " +
+            "equal on each side.\n\n" +
+
+            "2. Grab the ends of the band or the handles, if your band has them.\n\n" +
+
+            "3. Start with your hands by your sides and your palms facing in toward your body.\n\n" +
+
+            "4. Slowly curl the handle in your left hand up toward your shoulder.\n\n" +
+
+            "5. Contract your biceps before slowly lowering the handle back to your side.\n\n" +
+
+            "6. Repeat with your right arm, alternating back and forth.";
 
     public long band_Hammer_Curl_A_H_Id;
-    private String band_Hammer_Curl_A_H_Procedure = "";
+    private String band_Hammer_Curl_A_H_Procedure = "Materials needed:\n\n" +
+            "- Resistance band\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Stand with your feet hip-width apart, holding the ends of the band or the handles " +
+            "with your palms facing in toward your body.\n\n" +
+
+            "2. Flex both biceps muscles as you bring the handles toward your shoulders. \n" +
+            "CAUTION: Do not rotate the forearm as you curl the handles up.\n\n" +
+
+            "3. Squeeze your biceps before slowly lowering the handles to your sides. The movement " +
+            "should resemble hammering a nail.";
 
     public long chair_Dips_A_H_Id;
-    private String chair_Dips_A_H_Procedure;
+    private String chair_Dips_A_H_Procedure = "Materials needed:\n\n" +
+            "- Chair or bench\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. For this exercise you will need to place a bench or chair behind your back. With " +
+            "the bench or chair perpendicular to your body, and while looking away from it, hold on " +
+            "to the bench on its edge with the hands fully extended, separated at shoulder width. " +
+            "The legs will be extended forward, bent at the waist and perpendicular to your torso. " +
+            "This will be your starting position.\n\n" +
+
+            "2. Slowly lower your body as you inhale by bending at the elbows until you lower " +
+            "yourself far enough to where there is an angle slightly smaller than 90 degrees " +
+            "between the upper arm and the forearm. Tip: Keep the elbows as close as possible " +
+            "throughout the movement. Forearms should always be pointing down.\n\n" +
+
+            "3. Using your triceps to bring your torso up again, lift yourself back to the " +
+            "starting position.\n\n" +
+
+            "4. Repeat for the recommended amount of repetitions.\n\n" +
+
+            "Variations: You can place your legs on top of another flat bench in front of you in " +
+            "order to make the exercise more challenging. If that variation also becomes easy, " +
+            "then you can have a partner place plates on top of your lap. Make sure that in this " +
+            "case the partner ensures that the weights stay there throughout the movement.";
 
     public long band_Tricep_Extension_A_H_Id;
-    private String band_Tricep_Extension_A_H_Procedure = "";
+    private String band_Tricep_Extension_A_H_Procedure = "Materials needed:\n\n" +
+            "- Resistance band\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Grab the ends of the resistance band with each hand and step on the middle of the " +
+            "band with your foot.\n\n" +
+
+            "2. Pull the band up over your shoulders and so that your elbows are pointed forward.\n\n" +
+
+            "3. Extend your arms upward until they are in a straight line and then bring back " +
+            "down to your shoulders.\n\n" +
+
+            "4. Repeat this motion for the desired amount of repetitions.";
 
     public long band_Forearm_Curl_A_H_Id;
     private String band_Forearm_Curl_A_H_Procedure = "";
@@ -544,7 +602,15 @@ public class Fill_Database {
 
     // Home Legs
     public long air_Squats_L_H_Id;
-    private String air_Squats_L_H_Procedure = "";
+    private String air_Squats_L_H_Procedure = "Materials needed: - none\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Stand with your feet shoulder width apart. You can place your hands behind your head. " +
+            "This will be your starting position.\n\n" +
+
+            "2. Begin the movement by flexing your knees and hips, sitting back with your hips.\n\n" +
+
+            "3. Continue down to full depth if you are able,and quickly reverse the motion until " +
+            "you return to the starting position. As you squat, keep your head and chest up and push your knees out.";
 
     public long lunges_L_H_Id;
     private String lunges_L_H_Procedure = "";
