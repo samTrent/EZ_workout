@@ -1,15 +1,14 @@
 package com.example.samtrent.ezworkout;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -19,7 +18,7 @@ public class databaseHelper extends SQLiteOpenHelper {
     private static final String LOG = databaseHelper.class.getName();
 
     private static final String DATABASE_NAME = "OurDatabase";
-    private static final int DATABASE_VERSION = 37;
+    private static final int DATABASE_VERSION = 41;
 
     // Workouts table and columns name
     private static final String TABLE_WORKOUTS = "Workouts";

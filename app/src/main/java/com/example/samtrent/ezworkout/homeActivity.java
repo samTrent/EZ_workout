@@ -2,20 +2,15 @@ package com.example.samtrent.ezworkout;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -52,7 +47,7 @@ public class homeActivity extends AppCompatActivity {
         if (my_fav_list.size() == 0) {
 
             tv = (TextView) findViewById(R.id.textView3);
-            tv.setText("You currently have no favorite workouts!");
+            tv.setText("");
             //tv.setTextSize(20);
             //tv.setGravity(Gravity.CENTER);
             //tv.setTypeface(null, Typeface.BOLD);
@@ -66,7 +61,7 @@ public class homeActivity extends AppCompatActivity {
             tv = (TextView) findViewById(R.id.textView3);
             tv.setText("");
 
-            Log.d("fish", "onCreate: fishy");
+
             for (Workout w : my_fav_list) {
                 add_My_Workout_Button(w);
             }
@@ -103,7 +98,8 @@ public class homeActivity extends AppCompatActivity {
         if (my_fav_list.size() == 0) {
 
             tv = (TextView) findViewById(R.id.textView3);
-            tv.setText("You currently have no favorite workouts");
+            tv.setGravity(Gravity.CENTER);
+            tv.setText("Empty");
 
         }
         else if (my_fav_list.size() != 0) {

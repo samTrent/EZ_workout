@@ -13,9 +13,11 @@
     tools:context="com.example.samtrent.ezworkout.homeActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welcome to EZworkout!"
+        android:gravity="center"
+        android:background="@drawable/shap"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp"
@@ -33,7 +35,7 @@
         android:layout_height="100dp"
         android:id="@+id/horizontalScrollView"
         android:layout_alignParentBottom="true"
-        android:background="#bccecfcf"
+        android:background="@drawable/shap"
         android:layout_alignParentStart="true">
 
 
@@ -55,12 +57,12 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
         android:id="@+id/horizontalScrollViewTop"
         android:layout_above="@+id/textView4"
-
-        android:background="#bccecfcf"
-        android:layout_alignParentStart="true">
-
+        android:background="@drawable/shap">
+        <!--android:background="#bccecfcf"-->
 
 
         <LinearLayout
@@ -76,31 +78,12 @@
     </HorizontalScrollView>
 
     <TextView
-        android:text="Favorites"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true" />
-
-    <TextView
         android:text="Home workouts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView4"
         android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
         android:layout_above="@+id/horizontalScrollView"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:text="Gym workouts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView5"
-        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-        android:layout_centerVertical="true"
         android:layout_alignParentStart="true" />
 
 
@@ -111,8 +94,8 @@
         android:layout_height="100dp"
         android:id="@+id/horizontalFavoritScrollView"
         android:layout_marginTop="10dp"
+        android:background="@drawable/shap"
         android:layout_below="@+id/textView2"
-        android:background="#bccecfcf"
         android:layout_alignParentStart="true">
 
     <LinearLayout
@@ -129,15 +112,36 @@
     </HorizontalScrollView>
 
     <TextView
-        android:text="You currently have no favorite workouts!"
+        android:text="Empty"
+        android:textColor="#46010000"
         android:layout_width="400dp"
         android:layout_height="20dp"
+        android:textStyle="italic"
+        android:gravity="center"
         android:id="@+id/textView3"
         android:layout_weight="1"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button"
-        android:layout_marginTop="11dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_alignBottom="@+id/horizontalFavoritScrollView"
         android:layout_alignTop="@+id/horizontalFavoritScrollView"
-        android:layout_alignStart="@+id/textView2" />
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Gym workouts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        android:layout_above="@+id/horizontalScrollViewTop"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:id="@+id/workoutTitle"
-                android:background="#bccecfcf"
+                android:background="@drawable/shap"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
 
 
@@ -67,7 +67,7 @@
                 android:paddingBottom="1dp"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:background="#bccecfcf"
+                android:background="@drawable/shap"
                 android:src="@drawable/hammercurl"/>
 
             <TextView
@@ -78,7 +78,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="8dp"
-                android:background="#bccecfcf"
+                android:background="@drawable/shap"
                 app:layout_constraintTop_toBottomOf="@+id/workoutTitle"
                 android:layout_width="match_parent"
                 android:layout_weight="0.93" />
