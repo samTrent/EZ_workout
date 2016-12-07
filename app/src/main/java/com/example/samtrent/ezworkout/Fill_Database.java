@@ -595,10 +595,35 @@ public class Fill_Database {
             "4. Repeat this motion for the desired amount of repetitions.";
 
     public long band_Forearm_Curl_A_H_Id;
-    private String band_Forearm_Curl_A_H_Procedure = "";
+    private String band_Forearm_Curl_A_H_Procedure = "Materials needed:\n\n" +
+            "- Resistance band\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Sit on the edge of a chair or bench.\n\n" +
+
+            "2. Hold one end of the band in your right hand and step on the middle or end of the " +
+            "band, depending on how much resistance you need.\n\n" +
+
+            "3. Rest your forearm on your thigh with your wrist just beyond your knee and your " +
+            "palm facing up.\n\n" +
+
+            "4. Lower your knuckles as far as you can, then curl up against the resistance as far " +
+            "as you can.\n\n" +
+
+            "5. Pause for a count before lowering again. ";
 
     public long band_Tricep_Pulldown_A_H_Id;
-    private String band_Tricep_Pulldown_A_H_Procedure = "";
+    private String band_Tricep_Pulldown_A_H_Procedure = "Materials needed:\n\n" +
+            "- Resistance band\n" +
+            "- Pullup Bar\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Choke a band onto a pull up bar.\n\n" +
+
+            "2. Grasp the band with a pronated grip, hands close together.\n\n" +
+
+            "3. Beginning with the elbow flexed, extend the elbow to straighten your arms, " +
+            "ensuring you keep your upper arm in place.\n\n" +
+
+            "4. Pause briefly, and return to the starting position.";
 
     // Home Legs
     public long air_Squats_L_H_Id;
@@ -704,7 +729,19 @@ public class Fill_Database {
 
 
     public long band_Sitting_Row_B_H_Id;
-    private String band_Sitting_Row_B_H_Procedure = "";
+    private String band_Sitting_Row_B_H_Procedure = "Materials needed:\n\n" +
+            "- Resistance Band\n\n\n" +
+            "                                   Instructions\n\n" +
+            "1. Sit on the floor with your legs slightly bent out in front.\n\n" +
+
+            "2. Loop the band around the soles of your feet, cross it in front of you and hold one " +
+            "end in each hand.\n\n" +
+
+            "3. Start with your arms straight in front of you, pointing at your toes.\n\n" +
+
+            "4. Pull back so you bend your elbows and your hands meet your chest.\n\n" +
+            
+            "5. Return to the starting position.";
 
     public long band_Military_Press_B_H_Id;
     private String band_Military_Press_B_H_Procedure = "Materials needed:\n\n" +
@@ -989,6 +1026,7 @@ public class Fill_Database {
         tricep_Extension_A_G_Id = db.insert_Workout(tricep_Extension_A_G, arms_G_Id);
         forearm_Curl_A_G_Id = db.insert_Workout(forearm_Curl_A_G, arms_G_Id);
         weighted_Windup_A_G_Id = db.insert_Workout(weighted_Windup_A_G, arms_G_Id);
+
 
         // Add gym leg workouts
         Workout squats_L_G = new Workout(7, "Squats", 206, squats_L_G_Procedure, null);
