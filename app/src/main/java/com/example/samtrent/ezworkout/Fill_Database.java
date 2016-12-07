@@ -992,10 +992,10 @@ public class Fill_Database {
 
         // Add gym leg workouts
         Workout squats_L_G = new Workout(7, "Squats", 206, squats_L_G_Procedure, null);
-        Workout leg_Press_L_G = new Workout(8, "Leg Press", 206, leg_Press_L_G_Procedure, null);
+        Workout leg_Press_L_G = new Workout(8, "Leg Press", 206, leg_Press_L_G_Procedure, "legpress");
         Workout calf_Raises_L_G = new Workout(9, "Calf Raises", 206, calf_Raises_L_G_Procedure, "calfraise");
-        Workout leg_Curl_L_G = new Workout(10, "Leg Curl", 206, leg_Curl_L_G_Procedure, null);
-        Workout leg_Extension_L_G = new Workout(11, "Leg Extension", 206, leg_Extension_L_G_Procedure, null);
+        Workout leg_Curl_L_G = new Workout(10, "Leg Curl", 206, leg_Curl_L_G_Procedure, "legcurl");
+        Workout leg_Extension_L_G = new Workout(11, "Leg Extension", 206, leg_Extension_L_G_Procedure, "legextend");
 
         squats_L_G_Id = db.insert_Workout(squats_L_G, legs_G_Id);
         leg_Press_L_G_Id = db.insert_Workout(leg_Press_L_G, legs_G_Id);
@@ -1021,7 +1021,7 @@ public class Fill_Database {
         // Add gym chest workouts
         Workout bench_Press_C_G = new Workout(20, "Bench Press", 208, bench_Press_C_G_Procedure, "benchpress");
         Workout incline_Dumbbell_Press_C_G = new Workout(22, "Incline Dumbbell Press", 208, incline_Dumbbell_Press_C_G_Procedure, "inclineddumbbellpress");
-        Workout decline_Dumbbell_Press_C_G = new Workout(23, "Decline Dumbbell Press", 208, decline_Dumbbell_Press_C_G_Procedure, null);
+        Workout decline_Dumbbell_Press_C_G = new Workout(23, "Decline Dumbbell Press", 208, decline_Dumbbell_Press_C_G_Procedure, "declineddumbbell");
 
         bench_Press_C_G_Id = db.insert_Workout(bench_Press_C_G, chest_G_Id);
         incline_Dumbbell_Press_C_G_Id = db.insert_Workout(incline_Dumbbell_Press_C_G, chest_G_Id);
