@@ -704,10 +704,45 @@ public class Fill_Database {
 
     // Home Back
     public long closeGrip_Pullup_B_H_Id;
-    private String closeGrip_Pullup_B_H_Procedure = "";
+    private String closeGrip_Pullup_B_H_Procedure =  "Materials needed:\n\n" +
+            "- Pull-up bar\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. When performing the close-grip pull-up, reach up and grasp the bar with your hands " +
+            "shoulder-width apart and your palms facing forward. During the more traditional, wide-grip " +
+            "pull-up, your palms also face forward, but in this version you grip the overhead bar so " +
+            "that your hands are a few inches outside the width of your shoulders. \n\n" +
+
+            "2. The difference in hand placement between the close- and wide-grip pull-ups influences" +
+            " how your shoulder joints move as you perform the exercise.\n\n " +
+
+            "3. During the close-grip pull-up, your shoulder joints extend so that your upper arms " +
+            "move directly behind you. \n\n";
 
     public long wideGrip_Pullup_B_H_Id;
-    private String wideGrip_Pullup_B_H_Procedure = "";
+    private String wideGrip_Pullup_B_H_Procedure = "Materials needed:\n\n" +
+            "- Pull-up bar\n\n\n" +
+            "                                   Instructions\n\n" +
+
+            "1. Grab the pull-up bar with the palms facing forward using a wide grip. \n\n" +
+
+            "2. As you have both arms extended in front of you holding the bar, bring your torso " +
+            "forward and head so that there is an imaginary line from the pull-up bar to the back of" +
+            " your neck. This is your starting position.\n\n" +
+
+            "3. Pull your torso up until the bar is near the back of your neck. To do this, draw the" +
+            " shoulders and upper arms down and back while slightly leaning your head forward. Exhale" +
+            " as you perform this portion of the movement.\n\n" +
+
+            "TIP: Concentrate on squeezing the back muscles once you reach the full contracted position." +
+            " The upper torso should remain stationary as it moves through space and only the arms " +
+            "should move. The forearms should do no other work other than hold the bar. \n\n" +
+
+            "4. After a second on the contracted position, start to inhale and slowly lower your" +
+            " torso back to the starting position when your arms are fully extended and the lats are " +
+            "fully stretched.\n\n" +
+
+            "5. Repeat this motion for the prescribed amount of repetitions.\n\n";
 
     public long band_lat_Pulldown_B_H_Id;
     private String band_lat_Pulldown_B_H_Procedure = "Materials needed:\n\n" +
@@ -1029,7 +1064,7 @@ public class Fill_Database {
 
 
         // Add gym leg workouts
-        Workout squats_L_G = new Workout(7, "Squats", 206, squats_L_G_Procedure, null);
+        Workout squats_L_G = new Workout(7, "Squats", 206, squats_L_G_Procedure, "sqaut");
         Workout leg_Press_L_G = new Workout(8, "Leg Press", 206, leg_Press_L_G_Procedure, "legpress");
         Workout calf_Raises_L_G = new Workout(9, "Calf Raises", 206, calf_Raises_L_G_Procedure, "calfraise");
         Workout leg_Curl_L_G = new Workout(10, "Leg Curl", 206, leg_Curl_L_G_Procedure, "legcurl");
@@ -1094,8 +1129,8 @@ public class Fill_Database {
         jump_Rope_L_H_Id = db.insert_Workout(jump_Rope_L_H, legs_H_Id);
 
         // Add home back workouts
-        Workout closeGrip_Pullup_B_H = new Workout(34, "Close-Grip Pull-Up", 103, closeGrip_Pullup_B_H_Procedure, null);
-        Workout wideGrip_Pullup_B_H = new Workout(35, "Wide-Grip Pull-Up", 103, wideGrip_Pullup_B_H_Procedure, null);
+        Workout closeGrip_Pullup_B_H = new Workout(34, "Close-Grip Pull-Up", 103, closeGrip_Pullup_B_H_Procedure, "closedgrip");
+        Workout wideGrip_Pullup_B_H = new Workout(35, "Wide-Grip Pull-Up", 103, wideGrip_Pullup_B_H_Procedure, "opengrip");
         Workout band_lat_Pulldown_B_H = new Workout(36, "Cobra Lat Pulldown", 103, band_lat_Pulldown_B_H_Procedure, "latpullhome");
         Workout band_Sitting_Row_B_H = new Workout(37, "Band Sitting Row", 103, band_Sitting_Row_B_H_Procedure, null);
         Workout band_Military_Press_B_H = new Workout(38, "Band Military Press", 103, band_Military_Press_B_H_Procedure, "pyramidpushuphome");
