@@ -1103,12 +1103,12 @@ public class Fill_Database {
 
 
         // Add home arm workouts
-        Workout band_Basic_Curl_A_H = new Workout(24, "Band Basic Curl", 101, band_Basic_Curl_A_H_Procedure, null);
-        Workout band_Hammer_Curl_A_H = new Workout(25, "Band Hammer Curl", 101, band_Hammer_Curl_A_H_Procedure, null);
-        Workout chair_Dips_A_H = new Workout(26, "Chair Dips", 101, chair_Dips_A_H_Procedure, null);
-        Workout band_Tricep_Extension_A_H = new Workout(27, "Band Tricep Extension", 101, band_Tricep_Extension_A_H_Procedure, null);
-        Workout band_Forearm_Curl_A_H = new Workout(28, "Band Forearm Curl", 101, band_Forearm_Curl_A_H_Procedure, null);
-        Workout band_Tricep_Pulldown_A_H = new Workout(29, "Band Tricep Pulldown", 101, band_Tricep_Pulldown_A_H_Procedure, null);
+        Workout band_Basic_Curl_A_H = new Workout(24, "Band Basic Curl", 101, band_Basic_Curl_A_H_Procedure, "bandbicurl");
+        Workout band_Hammer_Curl_A_H = new Workout(25, "Band Hammer Curl", 101, band_Hammer_Curl_A_H_Procedure, "bandhammercurl");
+        Workout chair_Dips_A_H = new Workout(26, "Chair Dips", 101, chair_Dips_A_H_Procedure, "chairdips");
+        Workout band_Tricep_Extension_A_H = new Workout(27, "Band Tricep Extension", 101, band_Tricep_Extension_A_H_Procedure, "bandtriextened");
+        Workout band_Forearm_Curl_A_H = new Workout(28, "Band Forearm Curl", 101, band_Forearm_Curl_A_H_Procedure, "bandforearm");
+        Workout band_Tricep_Pulldown_A_H = new Workout(29, "Band Tricep Pulldown", 101, band_Tricep_Pulldown_A_H_Procedure, "bandtripulldown");
 
         band_Basic_Curl_A_H_Id = db.insert_Workout(band_Basic_Curl_A_H, arms_H_Id);
         band_Hammer_Curl_A_H_Id = db.insert_Workout(band_Hammer_Curl_A_H, arms_H_Id);
@@ -1132,7 +1132,7 @@ public class Fill_Database {
         Workout closeGrip_Pullup_B_H = new Workout(34, "Close-Grip Pull-Up", 103, closeGrip_Pullup_B_H_Procedure, "closedgrip");
         Workout wideGrip_Pullup_B_H = new Workout(35, "Wide-Grip Pull-Up", 103, wideGrip_Pullup_B_H_Procedure, "opengrip");
         Workout band_lat_Pulldown_B_H = new Workout(36, "Cobra Lat Pulldown", 103, band_lat_Pulldown_B_H_Procedure, "latpullhome");
-        Workout band_Sitting_Row_B_H = new Workout(37, "Band Sitting Row", 103, band_Sitting_Row_B_H_Procedure, null);
+        Workout band_Sitting_Row_B_H = new Workout(37, "Band Sitting Row", 103, band_Sitting_Row_B_H_Procedure, "bandrow");
         Workout band_Military_Press_B_H = new Workout(38, "Band Military Press", 103, band_Military_Press_B_H_Procedure, "pyramidpushuphome");
         Workout band_Shrugs_B_H = new Workout(39, "Arm Circles", 103, band_Shrugs_B_H_Procedure, "fluttershome");
 
